@@ -30,27 +30,9 @@ namespace Graduation_project
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            ///////////////////////////
+         
             
-            //builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-            //string base64EncodedKey = Environment.GetEnvironmentVariable("JWT_SECRET");
-            //byte[] key = Convert.FromBase64String(base64EncodedKey);
-
-            //// Configure JWT authentication with the retrieved key
-            //builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            //    .AddJwtBearer(options =>
-            //    {
-            //        options.TokenValidationParameters = new TokenValidationParameters
-            //        {
-            //            ValidateIssuer = true,
-            //            ValidateAudience = true,
-            //            ValidateLifetime = true,
-            //            ValidateIssuerSigningKey = true,
-            //            ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
-            //            ValidAudience = builder.Configuration["JWT:ValidAudience"],
-            //            IssuerSigningKey = new SymmetricSecurityKey(key)
-            //        };
-            //    });
+          
 
             var app = builder.Build();
 

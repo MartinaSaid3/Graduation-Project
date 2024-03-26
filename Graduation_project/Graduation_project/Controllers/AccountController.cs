@@ -34,6 +34,11 @@ namespace Graduation_project.Controllers
                 ApplicationUser user = new ApplicationUser();
                 user.UserName = UserDto.UserName;
                 user.Email = UserDto.Email;
+                user.PhoneNumber = UserDto.Phone;
+                user.Role = UserDto.Role;
+                user.Gender = UserDto.Gender;
+                user.Address = UserDto.Address;
+                user.SSN = UserDto.SSN;
                 IdentityResult result = await userManager.CreateAsync(user, UserDto.Password);
                 if (result.Succeeded)
                 {
@@ -44,10 +49,10 @@ namespace Graduation_project.Controllers
             return BadRequest(ModelState);
         }
 
-       // check Account Valid "login" "post"
-        [HttpPost("Login")] //api/account /login
-        public async Task<IActionResult> LoginAsync(LoginUserDto UserDto)
-        {
+             // check Account Valid "login" "post"
+            [HttpPost("Login")] //api/account /login
+            public async Task<IActionResult> LoginAsync(LoginUserDto UserDto)
+           {
             if (ModelState.IsValid == true)
             {
                 //check and create token
