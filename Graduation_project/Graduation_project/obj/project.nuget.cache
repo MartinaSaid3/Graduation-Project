@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZwLAws2fQaOsa768tGPAotq40wCPA0yfkB+TRjjaYKNdw8nIXcglk8JbQ2oGEyshYqp/HlPMSG0nH1QaxcuzMA==",
+  "dgSpecHash": "qUI+UhycCDawNG4ztiS7uHNznfcrLSiJhW/FINi7t29StnWAPiCv8ctzWBCSo2GpEh0hk8V/MUIAGRcNs/HsIw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Mega Store\\Desktop\\final\\Graduation_project\\Graduation_project\\Graduation_project.csproj",
+  "projectFilePath": "C:\\Users\\Mega Store\\Desktop\\projectt\\Graduation_project\\Graduation_project\\Graduation_project\\Graduation_project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Mega Store\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Mega Store\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

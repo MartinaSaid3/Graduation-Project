@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mega Store\\Desktop\\final\\Graduation_project\\Graduation_project\\Graduation_project.csproj": {}
+    "C:\\Users\\Mega Store\\Desktop\\projectt\\Graduation_project\\Graduation_project\\Graduation_project\\Graduation_project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mega Store\\Desktop\\final\\Graduation_project\\Graduation_project\\Graduation_project.csproj": {
+    "C:\\Users\\Mega Store\\Desktop\\projectt\\Graduation_project\\Graduation_project\\Graduation_project\\Graduation_project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mega Store\\Desktop\\final\\Graduation_project\\Graduation_project\\Graduation_project.csproj",
+        "projectUniqueName": "C:\\Users\\Mega Store\\Desktop\\projectt\\Graduation_project\\Graduation_project\\Graduation_project\\Graduation_project.csproj",
         "projectName": "Graduation_project",
-        "projectPath": "C:\\Users\\Mega Store\\Desktop\\final\\Graduation_project\\Graduation_project\\Graduation_project.csproj",
+        "projectPath": "C:\\Users\\Mega Store\\Desktop\\projectt\\Graduation_project\\Graduation_project\\Graduation_project\\Graduation_project.csproj",
         "packagesPath": "C:\\Users\\Mega Store\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mega Store\\Desktop\\final\\Graduation_project\\Graduation_project\\obj\\",
+        "outputPath": "C:\\Users\\Mega Store\\Desktop\\projectt\\Graduation_project\\Graduation_project\\Graduation_project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Mega Store\\AppData\\Roaming\\NuGet\\NuGet.Config",
