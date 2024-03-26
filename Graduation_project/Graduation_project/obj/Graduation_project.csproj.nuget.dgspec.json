@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Mega Store\\Desktop\\projectt\\Graduation_project\\Graduation_project\\Graduation_project.csproj": {}
+    "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Graduation_project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Mega Store\\Desktop\\projectt\\Graduation_project\\Graduation_project\\Graduation_project.csproj": {
+    "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Graduation_project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Mega Store\\Desktop\\projectt\\Graduation_project\\Graduation_project\\Graduation_project.csproj",
+        "projectUniqueName": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Graduation_project.csproj",
         "projectName": "Graduation_project",
-        "projectPath": "C:\\Users\\Mega Store\\Desktop\\projectt\\Graduation_project\\Graduation_project\\Graduation_project.csproj",
-        "packagesPath": "C:\\Users\\Mega Store\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Mega Store\\Desktop\\projectt\\Graduation_project\\Graduation_project\\obj\\",
+        "projectPath": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Graduation_project.csproj",
+        "packagesPath": "C:\\Users\\Monica\\.nuget\\packages\\",
+        "outputPath": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Mega Store\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Monica\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -86,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
