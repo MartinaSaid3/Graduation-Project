@@ -1,5 +1,6 @@
 ﻿using Graduation_project.DTO;
 using Graduation_project.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -95,6 +96,12 @@ namespace Graduation_project.Controllers
                 return Unauthorized();
             }
             return Unauthorized();
+        }
+        [HttpPost("Logout")]
+        public async Task<IActionResult> LogOutAsync()
+        {
+            await HttpContext.SignOutAsync();
+            return Ok("Logged Out Successfully");
         }
 
     }
