@@ -35,6 +35,11 @@ namespace Graduation_project.Controllers
                 ApplicationUser user = new ApplicationUser();
                 user.UserName = UserDto.UserName;
                 user.Email = UserDto.Email;
+                user.PhoneNumber = UserDto.Phone;
+                user.Role = UserDto.Role;
+                user.Gender = UserDto.Gender;
+                user.Address = UserDto.Address;
+                user.SSN = UserDto.SSN;
                 IdentityResult result = await userManager.CreateAsync(user, UserDto.Password);
                 if (result.Succeeded)
                 {
