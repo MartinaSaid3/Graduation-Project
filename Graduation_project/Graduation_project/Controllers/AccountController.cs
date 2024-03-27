@@ -96,6 +96,43 @@ namespace Graduation_project.Controllers
             }
             return Unauthorized();
         }
+        [HttpPost("ForgetPassword")]
+        public async Task<IActionResult> ForgetPassword(ForgetPasswordDto model)
+        {
+            var user = await userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                // Don't reveal that the user does not exist or is not confirmed
+                return Ok("If your email is registered, you will receive instructions to reset your password.");
+            }
+
+            var token = await userManager.GeneratePasswordResetTokenAsync(user);
+            var resetLink = Url.Action("ResetPassword", "Authentication", new { email = model.Email, token = token }, Request.Scheme);
+
+            // Send reset link to user's email
+            // Example: EmailSender.SendEmail(user.Email, "Password Reset", resetLink);
+
+            return Ok("If your email is registered, you will receive instructions to reset your password.");
+        }
+
+        [HttpPost("ResetPassword")]
+        public async Task<IActionResult> ResetPassword(ResetPasswordDto model)
+        {
+            var user = await userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                // Don't reveal that the user does not exist
+                return BadRequest("Invalid email.");
+            }
+
+            var result = await userManager.ResetPasswordAsync(user, model.Token, model.Password);
+            if (result.Succeeded)
+            {
+                return Ok("Password reset successful.");
+            }
+
+            return BadRequest("Invalid token or password reset failed.");
+        }
 
     }
 

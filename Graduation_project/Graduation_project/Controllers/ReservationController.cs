@@ -8,9 +8,14 @@ namespace Graduation_project.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ReservationController(ApplicationEntity _context) : ControllerBase
+    public class ReservationController : ControllerBase
     {
-        private readonly ApplicationEntity context = _context;
+        private readonly ApplicationEntity context;
+
+        public ReservationController(ApplicationEntity _context)
+        {
+            context = _context;
+        }
 
         // GET: api/Reservations
         [HttpGet]

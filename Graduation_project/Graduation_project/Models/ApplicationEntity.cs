@@ -13,7 +13,7 @@ namespace Graduation_project.Models
 
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Payment> Payment { get; set; }
-        public DbSet<Venue> Venue { get; set; }
+        public DbSet<Venue> Venues { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
