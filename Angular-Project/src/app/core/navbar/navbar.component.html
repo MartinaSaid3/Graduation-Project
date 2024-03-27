@@ -1,0 +1,112 @@
+<nav class="navbar navbar-expand-sm navbar-white">
+  <div class="container">
+
+    <div class="navbar-brand w-25">
+      <img src="../../assets/img/Logo.png" class="img-fluid">
+    </div>
+
+    <button *ngIf="isLogIn" class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div *ngIf="isLogIn" class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav gap-3 ps-lg-5 ms-lg-5 align-self-end justify-content-center w-100">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/home/']" fragment="1" routerLinkActive="fw-bolder lav-color">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/home/']" fragment="2" routerLinkActive="fw-bolder lav-color">About Us</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/home/']" fragment="3" routerLinkActive="fw-bolder lav-color">Gallary</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/home/']"  fragment="4" routerLinkActive="fw-bolder lav-color">Our Team</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/home/']" fragment="5" routerLinkActive="fw-bolder lav-color">Contact Us</a>
+          </li>
+
+          <div *ngIf="!isLogIn" class="d-flex align-items-center align-self-center ms-auto">
+            <li class="nav-item">
+              <a [routerLink]='["/account/login"]' class="btn nav-link" routerLinkActive="fw-bolder lav-color" > LogIn </a>
+            </li>
+
+              <span class="lav-color fs-3 ps-2 pe-2">|</span>
+
+            <li class="nav-item">
+              <a [routerLink]="['/account/registration']" class="btn nav-link" routerLinkActive="fw-bolder lav-color">Registration</a>
+            </li>
+
+          </div>
+
+          <div class="ms-auto">
+            <li  class="nav-item">
+              <a class="nav-link">Log Out</a>
+            </li>
+          </div>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- <nav class="navbar navbar-expand-sm navbar-white">
+  <div class="container">
+    <div class="row">
+      <div class="navbar-brand col-6 col-lg-3 col-md-4 col-sm-5 ">
+        <img src="../../assets/img/Logo.png" class="img-fluid">
+      </div>
+
+      <button *ngIf="!isusers" class="d-lg-none d-md-none col-5 d-flex align-items-center justify-content-end border-0 bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="text-right navbar-toggler-icon fs-5 lav-color"></span>
+      </button>
+
+      <div *ngIf="!isusers" class="col-lg-6 col-md-7 collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav gap-4">
+
+          <li class="nav-item">
+            <a class="nav-link border-bottom border-2" href="#">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link border-bottom border-2" href="#">About Us</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link border-bottom border-2" href="#">Gallary</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link border-bottom border-2">Our Team</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link border-bottom border-2">Contact Us</a>
+          </li>
+
+          <div class="d-flex">
+            <li class="nav-item">
+              <a class="nav-link border-bottom border-2 lav-color" >LogIn</a>
+            </li>
+
+              <span class="lav-color fs-2">|</span>
+
+            <li class="nav-item">
+              <a class="nav-link border-bottom border-2">Registration</a>
+            </li>
+
+          </div>
+
+
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav> -->
+
