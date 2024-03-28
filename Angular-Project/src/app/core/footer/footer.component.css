@@ -1,0 +1,27 @@
+#container{
+    background-color: #BA8AD8;
+}
+#imggg{
+    width: 130px;
+    margin-top: -50px;
+    margin-bottom: -35px;
+}
+h2 {
+    text-align: center;
+    position: relative;
+    color: #8F8F8F;
+  }
+  
+  h2::after {
+    content: "";
+    position: absolute;
+    top: 52%;
+    left: 0;
+    height: 3px;
+    width: 44%;
+    background-color: #989898;
+    transform: translateY(-50%);
+  }
+  
+ 
+

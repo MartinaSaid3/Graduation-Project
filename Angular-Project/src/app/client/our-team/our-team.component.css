@@ -1,0 +1,67 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color:#fff;
+}
+
+.card-img-top{
+    border-radius: 50%;
+    height: 210px;
+    width: 210px ;
+    position: relative;
+    left: 80px;
+    top: -80px;
+    object-fit: cover;
+}
+.card{
+    width: 350px;
+    border-radius: 0;
+    cursor: pointer;
+    margin-top: 100px ;
+}
+.card:hover{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.card-body{
+    margin-top: -50px;
+}
+.bi{
+    font-size: 25px;
+}
+.bi-facebook:hover,.bi-linkedin:hover{
+    color: #0A66C2;
+    transition: .3s;
+}
+.bi-envelope-fill:hover{
+    color: rgb(227, 209, 104);
+    transition: .3s;
+}
+.bi-whatsapp:hover{
+    color: green;
+    transition: .3s;
+}
+@media only screen and (max-width: 600px) {
+    .card-img-top{
+        left: 48px !important;
+    }
+  }
+  h2 {
+    text-align: center;
+    position: relative;
+    color: #8F8F8F;
+  }
+  
+  h2::after {
+    content: "";
+    position: absolute;
+    top: 80%;
+    right: 0;
+    height: 3px;
+    width: 43%;
+    background-color: #989898;
+    transform: translateY(-50%);
+  }
