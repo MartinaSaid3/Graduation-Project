@@ -12,7 +12,6 @@
                   <div class="d-flex flex-column w-100">
                     <label class ="label">Role</label>
                     <mat-select [(ngModel)]="user.Role" formControlName="Role"  class="border-0 light-lav-color" required>
-                      <mat-option class="text-secondary" selected> Select Role</mat-option>
                       <mat-option value = "client">Client</mat-option>
                       <mat-option value = "ServiceProvider">Service Provider</mat-option>
                     </mat-select>
@@ -73,7 +72,6 @@
                   <div class="d-flex flex-column w-100">
                     <label class ="label">Gender</label>
                     <mat-select [(ngModel)]="user.Gender" formControlName="Gender" class="border-0 light-lav-color" required>
-                      <mat-option class="text-secondary">select your Gender</mat-option>
                       <mat-option value="female">Female</mat-option>
                       <mat-option value="male">Male</mat-option>
                     </mat-select>

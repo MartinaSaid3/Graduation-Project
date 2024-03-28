@@ -20,22 +20,19 @@
   #photo{
     width: 1000px;
   } */
-  
+
   *{
     box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
   }
-  body{
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  .container{
+
+  /* .container{
     margin: auto;
     position: relative;
-  }
-  .textblock
+  } */
+
+  /* .textblock
   {
     display: flex;
     flex-direction: column;
@@ -78,10 +75,57 @@
     .container .wedd {
       display: none;
     }
- }
- 
-  
+ } */
+
+ /* h2 {
+  text-align: center;
+  position: relative;
+  color: var(--dark-gray-color);
+}
+
+ h2::after {
+  content: "";
+  position: absolute;
+  top: 52%;
+  left: 0;
+  height: 2px;
+  width: 44%;
+  background-color: var(--dark-gray-color);
+  transform: translateY(-50%);
+} */
+.w-44{
+  width: 44%;
+}
+span{
+  border: 2px solid var(--dark-gray-color);
+  margin-bottom: 10px;
+}
+/* .imges{
+  position: relative;
+} */
+.imges .img-card1,.imges .img-card2{
+  width: 200px;
+}
+@media (width>950px){
+  .imges .img-card1{
+    width: 200px;
+    transform: rotate(30deg);
+    position: relative;
+    top: -100px;
+    left: 60%;
+    z-index: 50;
+  }
+
+  .imges .img-card2{
+    width: 300px;
+    transform: rotate(-10deg);
+    z-index: 5;
+  }
+}
 
 
-   
- 
+
+
+
+
+

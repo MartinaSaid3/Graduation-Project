@@ -38,6 +38,7 @@ error:string ='';
         this.isLoading=false;
         if(response.message === 'success'){
           localStorage.setItem('userToken',response.token);
+          this._authService.saveUserData();
           this._Router.navigate(['/home',this.islogin]);
           //this._Router.navigate(['/https://mail.google.com/mail/u/0/']);
 

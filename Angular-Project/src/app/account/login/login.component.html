@@ -26,6 +26,11 @@
           <p *ngIf="LogInForm.get('Password')?.getError('pattern')">Password must be in this format </p>
         </div>
 
+        <div class="text-start w-75 d-flex">
+          <p class="gray-color">If You Don't have account - </p>
+          <a [routerLink]="['/account/registeration']" class="text-decoration-none fw-bold light-lav-color ms-3">Register</a>
+        </div>
+
         <div *ngIf="error" class="alert alert-danger bg-white text-danger">{{error}}</div>
 
         <div class="d-flex justify-content-end flex-row align-self-end">

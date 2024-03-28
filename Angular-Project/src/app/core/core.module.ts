@@ -15,7 +15,7 @@ import {RouterModule} from '@angular/router';
   ],
   exports: [
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
   ]
 })
 export class CoreModule { }

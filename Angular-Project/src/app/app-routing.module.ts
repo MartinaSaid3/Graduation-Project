@@ -6,6 +6,9 @@ import { RegistrationComponent } from './account/registration/registration.compo
 import { LoginComponent } from './account/login/login.component';
 import { ErrorComponent } from './error/error.component';
 import { HomeBodyComponent } from './client/home-body/home-body.component';
+import { DashboardComponent } from './service-provider/dashboard/dashboard.component';
+import { AddHallComponent } from './service-provider/add-hall/add-hall.component';
+import { DetailsComponent } from './service-provider/details/DetailsComponent';
 
 const routes: Routes = [
   {path:'account',component:AccountComponent ,children:[
@@ -13,15 +16,24 @@ const routes: Routes = [
     {path:'login',component:LoginComponent},
     {path:'registration',component:RegistrationComponent}
   ]},
+
   {path:'home',component:HomeComponent,children:[
     {path:'',component:HomeBodyComponent}
   ]},
+
+  {path:'service_provider',component:DashboardComponent,children:[
+    {path:'',component:AddHallComponent},
+    {path:'add-Hall',component:AddHallComponent},
+    {path:'details',component:DetailsComponent},
+  ]},
+
   {path:'',redirectTo:'home',pathMatch:'full'},
+
   {path:'**',component:ErrorComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [ RouterModule,RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
