@@ -4,6 +4,7 @@ using Graduation_project.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Graduation_project.Migrations
 {
     [DbContext(typeof(ApplicationEntity))]
-    partial class ApplicationEntityModelSnapshot : ModelSnapshot
+    [Migration("20240328154546_j")]
+    partial class j
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,10 +85,6 @@ namespace Graduation_project.Migrations
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
-
-                    b.Property<string>("UserLocation")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
@@ -169,16 +168,16 @@ namespace Graduation_project.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VenueId"));
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Capacity")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<byte[]>("ImagesData")
-                        .IsRequired()
-                        .HasColumnType("varbinary(max)");
 
                     b.Property<bool>("IsAvailable")
                         .HasColumnType("bit");
@@ -191,13 +190,6 @@ namespace Graduation_project.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Type")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ValidDate")
-                        .HasColumnType("int");
-
-                    b.Property<string>("VenueLocation")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

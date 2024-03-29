@@ -38,7 +38,7 @@ namespace Graduation_project.Controllers
                 user.PhoneNumber = UserDto.Phone;
                 user.Role = UserDto.Role;
                 user.Gender = UserDto.Gender;
-                user.Address = UserDto.Address;
+                user.UserLocation = UserDto.Address;
                 user.SSN = UserDto.SSN;
 
                 IdentityResult result = await userManager.CreateAsync(user, UserDto.Password);
@@ -122,9 +122,9 @@ namespace Graduation_project.Controllers
             return Ok("If your email is registered, you will receive instructions to reset your password.");
         }
 
-        [HttpPost("ResetPassword")]
+         [HttpPost("ResetPassword")]
         public async Task<IActionResult> ResetPassword(ResetPasswordDto model)
-        {
+         {
             var user = await userManager.FindByEmailAsync(model.Email);
             if (user == null)
             {
@@ -135,6 +135,8 @@ namespace Graduation_project.Controllers
             var result = await userManager.ResetPasswordAsync(user, model.Token, model.Password);
             if (result.Succeeded)
             {
+
+
                 return Ok("Password reset successful.");
             }
 

@@ -6,11 +6,14 @@
         public int VenueId { get; set; }
         public string Type { get; set; }
         public string Description { get; set; }
-        public string Address { get; set; }
+        public string VenueLocation { get; set; }
         public int Capacity { get; set; }
         public int Price { get; set; }
-        public bool IsAvailable { get; set; }
+    
+        public int ValidDate { get; set; }
+        public Byte[] ImagesData { get; set; }
         //navigation property
         public ICollection<Reservation> Reservations { get; set; }
     }
 }
+

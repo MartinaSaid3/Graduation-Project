@@ -1,5 +1,6 @@
 ﻿using Graduation_project.DTO;
 using Graduation_project.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -40,16 +41,19 @@ namespace Graduation_project.Controllers
 
         // POST: api/Venues
         [HttpPost]
-        public async Task<ActionResult<Venue>> PostVenue(VenueDto venueDTO)
+        
+        public async Task<ActionResult<Venue>> PostVenue(ServicesProviderVenueDto ServicesProvidervenueDTO)
         {
             var venue = new Venue
             {
-                Name = venueDTO.Name,
-                Address = venueDTO.Location,
-                Capacity = venueDTO.Capacity,
-                Type = venueDTO.Type,
-                Description = venueDTO.Description,
-                Price = venueDTO.Price,
+                Name = ServicesProvidervenueDTO.Name,
+                VenueLocation = ServicesProvidervenueDTO.Location,
+                Capacity = ServicesProvidervenueDTO.Capacity,
+                Type = ServicesProvidervenueDTO.Type,
+                Description = ServicesProvidervenueDTO.Description,
+                Price = ServicesProvidervenueDTO.Price,
+                ValidDate = ServicesProvidervenueDTO.ValidDate,
+                ImagesData = ServicesProvidervenueDTO.ImagesData,
             };
 
             context.Venues.Add(venue);
@@ -75,7 +79,7 @@ namespace Graduation_project.Controllers
 
             // Update venue properties
             venue.Name = venueDTO.Name;
-            venue.Address = venueDTO.Location;
+            venue.VenueLocation = venueDTO.Location;
             venue.Capacity = venueDTO.Capacity;
             venue.Type = venueDTO.Type;
             venue.Description = venueDTO.Description;

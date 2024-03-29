@@ -7,7 +7,7 @@ namespace Graduation_project.DTO
     {
         //make to not use application user to make custome proprty and add validation
 
-        public string FullName { get; set; }
+        public string FullName{ get; set; }
 
         public string Role { get; set; }
 
@@ -15,7 +15,6 @@ namespace Graduation_project.DTO
 
         [Required(ErrorMessage = "Phone number is required")]
         public string Phone { get; set; }
-
 
         public string Address { get; set; }
 
@@ -29,7 +28,6 @@ namespace Graduation_project.DTO
         [Compare("Password")]
         public string ConfirmPassword { get; set; }
         public string Email { get; set; }
-
 
 
     }
