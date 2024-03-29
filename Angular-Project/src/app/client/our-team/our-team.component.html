@@ -4,110 +4,39 @@
     <span class="w-46"></span>
     <h2 class="me-3 fw-bolder py-4 fs-3">Our Team </h2>
   </div>
-  <!--------------------------end our team line --------------------------->
-  <div class="container d-flex flex-column gap-4">
-    <section class="w-50 ps-5 text-center align-self-center">
-      <h4 class=fw-bolder>Please login to view your pics. It’s simple & easy.</h4>
+  <!-------------------------- end our team line --------------------------->
+
+  <!--------------------------start Our Team ------------------------------------->
+  <div class="container d-flex flex-column align-items-center gap-4">
+    <section class="w-50 ps-lg-5 text-center ">
+      <h4 class = fw-bolder>Please login to view your pics. It’s simple & easy.</h4>
       <h4 class="text-muted">Just add your photo as a profile pic and see our powerful AI hand picking them for you!</h4>
     </section>
 
-    <div class="w-100 d-flex flex-column align-items-center">
-      <section class="card-group d-flex flex-row justify-content-center align-items-center gap-4">
-        <div class="col">
-          <div class="card">
-            <img src="../../../assets/img/omar.jpg" class="card-img-top" alt="...">
-            <div class="card-body py-5">
-              <h5 class="card-title">OMar Friga</h5>
-              <p class="card-text ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, neque.</p>
-            </div>
-            <div class="d-flex justify-content-evenly p-4">
-                <i class="bi bi-facebook"></i>
-                <i class="bi bi-linkedin"></i>
-                <i class="bi bi-envelope-fill"></i>
-                <i class="bi bi-whatsapp"></i>
-            </div>
+    <div class="w-100 d-flex flex-row justify-content-center align-items-center ">
+      <section class="w-75 d-flex flex-row flex-wrap justify-content-center align-items-center gap-4">
+        <div class="card d-flex flex-column align-items-center gap-3" *ngFor="let member of Members">
+          <div class="w-100 img-h">
+            <img [src]="member.img_Path" class="img-fluid" alt="...">
           </div>
-        </div>
-
-        <div class="col">
-          <div class="card">
-            <img src="../../../assets/img/omnia.jpg" class="card-img-top" alt="...">
-            <div class="card-body py-5">
-              <h5 class="card-title">OMar Friga</h5>
-              <p class="card-text ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, neque.</p>
-            </div>
-            <div class="d-flex justify-content-evenly p-4">
-                <i class="bi bi-facebook"></i>
-                <i class="bi bi-linkedin"></i>
-                <i class="bi bi-envelope-fill"></i>
-                <i class="bi bi-whatsapp"></i>
-            </div>
+          <div class=" w-100 text-center d-flex flex-column">
+            <h4 class="dark-gray-color pt-3 fw-bolder">{{member.name}}</h4>
+            <h5 class="dark-gray-color fw-bolder">{{member.job_Title}}</h5>
+            <p class="gray-color px-3">{{member.intro}}</p>
           </div>
-        </div>
-
-        <div class="col">
-          <div class="card">
-            <img src="../../../assets/img/omar.jpg" class="card-img-top" alt="...">
-            <div class="card-body py-5">
-              <h5 class="card-title">OMar Friga</h5>
-              <p class="card-text ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, neque.</p>
-            </div>
-            <div class="d-flex justify-content-evenly p-4">
+          <div class="d-flex justify-content-evenly p-4">
+              <a [href]="member.Mail_Link">
                 <i class="bi bi-facebook"></i>
+              </a>
+              <a [href]="member.Mail_Link">
                 <i class="bi bi-linkedin"></i>
+              </a>
+              <a [href]="member.Mail_Link">
                 <i class="bi bi-envelope-fill"></i>
+              </a>
+              <a [href]="member.Mail_Link">
                 <i class="bi bi-whatsapp"></i>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="card-group d-flex flex-row justify-content-center gap-5">
-        <div class="col">
-          <div class="card">
-            <img src="../../../assets/img/omar.jpg" class="card-img-top" alt="...">
-            <div class="card-body py-5">
-              <h5 class="card-title">OMar Friga</h5>
-              <p class="card-text ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, neque.</p>
-            </div>
-            <div class="d-flex justify-content-evenly p-4">
-                <i class="bi bi-facebook"></i>
-                <i class="bi bi-linkedin"></i>
-                <i class="bi bi-envelope-fill"></i>
-                <i class="bi bi-whatsapp"></i>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card">
-            <img src="../../../assets/img/omnia.jpg" class="card-img-top" alt="...">
-            <div class="card-body py-5">
-              <h5 class="card-title">OMar Friga</h5>
-              <p class="card-text ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, neque.</p>
-            </div>
-            <div class="d-flex justify-content-evenly p-4">
-                <i class="bi bi-facebook"></i>
-                <i class="bi bi-linkedin"></i>
-                <i class="bi bi-envelope-fill"></i>
-                <i class="bi bi-whatsapp"></i>
-            </div>
-          </div>
-        </div>
-
-        <div class="col">
-          <div class="card">
-            <img src="../../../assets/img/omar.jpg" class="card-img-top" alt="...">
-            <div class="card-body py-5">
-              <h5 class="card-title">OMar Friga</h5>
-              <p class="card-text ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, neque.</p>
-            </div>
-            <div class="d-flex justify-content-evenly p-4">
-                <i class="bi bi-facebook"></i>
-                <i class="bi bi-linkedin"></i>
-                <i class="bi bi-envelope-fill"></i>
-                <i class="bi bi-whatsapp"></i>
-            </div>
+              </a>
           </div>
         </div>
       </section>

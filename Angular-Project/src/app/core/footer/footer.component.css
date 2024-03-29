@@ -1,27 +1,49 @@
-#container{
-    background-color: #BA8AD8;
-}
+
 #imggg{
     width: 130px;
     margin-top: -50px;
     margin-bottom: -35px;
 }
-h2 {
-    text-align: center;
-    position: relative;
-    color: #8F8F8F;
+.w-44{
+  width: 44%;
+}
+span{
+  border: 2px solid var(--dark-gray-color);
+  margin-bottom: 10px;
+  margin-left: -12px;
+}
+.icon{
+  font-size: 4em;
+}
+.w-30{
+  width: 30%;
+}
+.w-size{
+  width: 90%;
+  border-radius: 0;
+}
+@media only screen and (min-width: 600px){
+.w-size{
+  width: 80%;
+  justify-content: center;
   }
-  
-  h2::after {
-    content: "";
-    position: absolute;
-    top: 52%;
-    left: 0;
-    height: 3px;
-    width: 44%;
-    background-color: #989898;
-    transform: translateY(-50%);
+}
+@media only screen and (min-width: 768px){
+  .w-size{
+    width: 45%;
+    align-self: center;
   }
-  
- 
+}
+
+@media only screen and (min-width: 992px){
+  .w-size{
+    width: 30%;
+  }
+}
+
+.p-line-height{
+  line-height: .3em;
+}
+
+
 
