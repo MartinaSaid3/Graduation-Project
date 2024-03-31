@@ -1,0 +1,77 @@
+  <div class="container-fluid">
+  
+    <div class="row w-100">
+      <div class="col-6">
+        <div class="navbar-brand pt-5 ps-5">
+          <img src="../../assets/img/Logo.png" class="img-fluid">
+        </div>
+      </div>
+      <div class="col-6 d-flex justify-content-end">
+        <div class="navbar-brand pt-5 pe-5">
+          <img src="../../../assets/img/Vector.png">
+        </div>
+      </div>
+
+
+ <section  class=" d-flex flex-column align-items-center gap-3 ">
+
+  
+    <h2 class="dark-gray-color fs-1 display-6">Hall Form</h2>
+      <form [formGroup]="hallform" class="d-flex flex-column w-75">
+  
+        <div class="d-flex align-items-center justify-content-center gap-3">
+          <label class=" dark-gray-color col-form-label custom-label " for="name">Hall Name</label>
+          <input matInput formControlName="Name" id="name" type="text" class="border-0 light-lav-color" class="custom-input" >
+        </div>
+  
+       
+          <div class=" d-flex align-items-center justify-content-center gap-3" >
+          <label class="dark-gray-color col-form-label custom-label" for="Location"  >Location </label>
+          <input matInput   formControlName="Location" id="Location" type="text" class="border-0 light-lav-color" class="custom-input"  >
+        </div>
+        
+        
+        <div class="d-flex align-items-center justify-content-center gap-3 "  >
+          <label class="dark-gray-color col-form-label custom-label"  for="maxCapacity" >MaxCapacity </label>
+          <input matInput formControlName="MaxCapacity" id="maxCapacity" type="number" class="border-0 light-lav-color" class="custom-input" >
+        </div>
+
+        <div class="d-flex align-items-center justify-content-center gap-3 "  >
+          <label class="dark-gray-color col-form-label custom-label"  for="minCapacity" >MinCapacity </label>
+          <input matInput formControlName="MinCapacity" id="minCapacity" type="number" class="border-0 light-lav-color" class="custom-input" >
+        </div>
+       
+        <div class=" d-flex align-items-center justify-content-center gap-3 "   >
+          <label class="dark-gray-color col-form-label custom-label" for="price" >PersonalPrice </label>
+          <input matInput  formControlName="PersonalPrice" id="price" type="number" class="border-0 light-lav-color" class="custom-input" >
+        </div>
+     
+          
+    
+        <div class=" d-flex align-items-center justify-content-center gap-3  " >
+          <label class="dark-gray-color col-form-label custom-label" for="type" >type </label>
+          <input matInput formControlName="Type" id="type" type="text" class="border-0 light-lav-color" class="custom-input" >
+        </div>
+     
+  
+    
+  
+        <div class="d-flex align-items-center justify-content-center gap-3"   >
+          <label class="dark-gray-color col-form-label custom-label" for="Description">Description </label>
+          <input matInput formControlName="Description" id="Description" type="text" class="border-0 light-lav-color" class="custom-input">
+        </div>
+
+        
+   <!-- Input field for uploading image -->
+   <div class="d-flex align-items-center justify-content-center gap-3">
+    <label class="dark-gray-color col-form-label custom-label" for="image">Upload Image:</label>
+    <input type="file" (change)="onFileSelected($event)" id="image" name="image" accept="image/*" class="custom-file-input" multiple>
+  </div>
+
+          <div class=" d-flex align-items-center justify-content-center gap-3" >
+          <button type="submit" (click)="handleform()" class="btn button-form px-5 d-flex align-items-center">Add</button>
+        </div>
+      <p *ngIf="errMsg" class="alert alert-danger">{{errMsg}}</p>
+       
+      </form>
+  </section>

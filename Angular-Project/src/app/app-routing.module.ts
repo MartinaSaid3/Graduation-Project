@@ -9,6 +9,7 @@ import { HomeBodyComponent } from './client/home-body/home-body.component';
 import { DashboardComponent } from './service-provider/dashboard/dashboard.component';
 import { AddHallComponent } from './service-provider/add-hall/add-hall.component';
 import { DetailsComponent } from './service-provider/details/DetailsComponent';
+import { HallsComponent } from './service-provider/halls/halls.component';
 
 const routes: Routes = [
   {path:'account',component:AccountComponent ,children:[
@@ -26,6 +27,8 @@ const routes: Routes = [
     {path:'add-Hall',component:AddHallComponent},
     {path:'details',component:DetailsComponent},
   ]},
+
+  {path:'halls',component:HallsComponent},
 
   {path:'',redirectTo:'home',pathMatch:'full'},
 

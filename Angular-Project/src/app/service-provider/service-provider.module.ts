@@ -5,12 +5,14 @@ import { RequestsComponent } from './requests/requests.component';
 import { DetailsComponent } from './details/DetailsComponent';
 import { DoublePipe } from '../double.pipe';
 import { SearchComponent } from './search/search.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddHallComponent } from './add-hall/add-hall.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
+import { HallsComponent } from './halls/halls.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -21,13 +23,16 @@ import { AppRoutingModule } from '../app-routing.module';
     SidebarComponent,
     DashboardComponent,
     AddHallComponent,
+    HallsComponent,
 
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
   ],
   exports:[RequestsComponent,DetailsComponent],
 })

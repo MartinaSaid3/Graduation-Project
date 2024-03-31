@@ -8,6 +8,11 @@ import { AccountModule } from './account/account.module';
 import { ErrorComponent } from './error/error.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ServiceProviderModule } from './service-provider/service-provider.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,15 @@ import { ServiceProviderModule } from './service-provider/service-provider.modul
     AppRoutingModule,
     ClientModule,
     AccountModule,
-    ServiceProviderModule
+    ServiceProviderModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    BrowserModule,
+    
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+   
   ],
   providers: [
     provideAnimationsAsync()

@@ -4,6 +4,9 @@ import { User } from '../../_modules/user';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { Account } from '../../_modules/account';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-login',
