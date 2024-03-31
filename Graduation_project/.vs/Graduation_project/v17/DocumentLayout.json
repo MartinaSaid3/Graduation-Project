@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|d:\\iti\\new\\graduation project\\graduation project repo\\graduation_project\\graduation_project\\migrations\\applicationentitymodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|solutionrelative:graduation_project\\migrations\\applicationentitymodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|d:\\iti\\new\\graduation project\\graduation project repo\\graduation_project\\graduation_project\\migrations\\20240331153635_reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|solutionrelative:graduation_project\\migrations\\20240331153635_reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -55,6 +59,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ApplicationEntityModelSnapshot.cs",
+              "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Migrations\\ApplicationEntityModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Graduation_project\\Migrations\\ApplicationEntityModelSnapshot.cs",
+              "ToolTip": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Migrations\\ApplicationEntityModelSnapshot.cs",
+              "RelativeToolTip": "Graduation_project\\Migrations\\ApplicationEntityModelSnapshot.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-31T19:57:31.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "20240331153635_reservation.cs",
               "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Migrations\\20240331153635_reservation.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Migrations\\20240331153635_reservation.cs",
@@ -67,7 +84,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ReservationDto.cs",
               "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\DTO\\ReservationDto.cs",
               "RelativeDocumentMoniker": "Graduation_project\\DTO\\ReservationDto.cs",
@@ -79,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Reservation.cs",
               "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Models\\Reservation.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Models\\Reservation.cs",
@@ -91,7 +108,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ReservationController.cs",
               "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Controllers\\ReservationController.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Controllers\\ReservationController.cs",
@@ -103,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Venue.cs",
               "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Models\\Venue.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Models\\Venue.cs",
@@ -115,7 +132,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "EmailService.cs",
               "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Models\\EmailService.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Models\\EmailService.cs",
@@ -127,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "AccountController.cs",
               "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Controllers\\AccountController.cs",
@@ -139,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "VenuesController.cs",
               "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Controllers\\VenuesController.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Controllers\\VenuesController.cs",
@@ -151,7 +168,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "VenueDto.cs",
               "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\DTO\\VenueDto.cs",
               "RelativeDocumentMoniker": "Graduation_project\\DTO\\VenueDto.cs",
