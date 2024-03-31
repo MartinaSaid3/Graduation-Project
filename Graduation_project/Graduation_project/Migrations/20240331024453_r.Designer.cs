@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Graduation_project.Migrations
 {
     [DbContext(typeof(ApplicationEntity))]
-    [Migration("20240327120336_resetforget")]
-    partial class resetforget
+    [Migration("20240331024453_r")]
+    partial class r
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -166,9 +166,6 @@ namespace Graduation_project.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsAvailable")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()

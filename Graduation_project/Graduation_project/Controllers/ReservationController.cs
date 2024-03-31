@@ -19,23 +19,25 @@ namespace Graduation_project.Controllers
 
         // GET: api/Reservations
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Reservation>>> GetReservations()
+        public async Task<ActionResult<IEnumerable<Reservation>>> GetAllReservations()
         {
-            return await context.Reservations.ToListAsync();
+            List<Reservation> reservations = await context.Reservations.ToListAsync();
+            return Ok(reservations);
         }
 
         // GET: api/Reservations/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Reservation>> GetReservation(int id)
         {
-            var reservation = await context.Reservations.FindAsync(id);
+            Reservation reservation = await context.Reservations.Include(s=>s.Venue).FirstOrDefaultAsync(r => r.Id == id);
 
-            if (reservation == null)
-            {
-                return NotFound();
-            }
-
-            return reservation;
+            ReservationDto reservationDto = new ReservationDto();
+            reservationDto.Id = reservation.Id;
+            reservationDto.VenueId = reservation.VenueId;
+            reservationDto.Date = reservation.Date; 
+            reservationDto.NumOfGuests = reservation.NumOfGuests;
+            reservationDto.SpecialRequests = reservation.SpecialRequests;
+            return Ok(reservationDto); 
         }
 
         // POST: api/Reservations
@@ -48,7 +50,6 @@ namespace Graduation_project.Controllers
                 Date = reservationDTO.Date,
                 NumOfGuests = reservationDTO.NumOfGuests,
                 SpecialRequests = reservationDTO.SpecialRequests
-                // Map other properties as needed
             };
 
             context.Reservations.Add(reservation);
@@ -61,6 +62,15 @@ namespace Graduation_project.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutReservation(int id, ReservationDto reservationDTO)
         {
+            //Reservation reservation = await context.Reservations.Include(s => s.Venue).FirstOrDefaultAsync(r => r.Id == id);
+
+            //reservationDTO.Id = reservation.Id;
+            //reservationDTO.VenueId = reservation.VenueId;
+            //reservationDTO.Date = reservation.Date;
+            //reservationDTO.NumOfGuests = reservation.NumOfGuests;
+            //reservationDTO.SpecialRequests = reservation.SpecialRequests;
+            //context.Reservations.Update(reservation);
+            //await context.SaveChangesAsync();
             if (id != reservationDTO.Id)
             {
                 return BadRequest();

@@ -1,4 +1,6 @@
-﻿namespace Graduation_project.Models
+﻿using System.Text.Json.Serialization;
+
+namespace Graduation_project.Models
 {
     public class Venue
     {
@@ -9,8 +11,9 @@
         public string Address { get; set; }
         public int Capacity { get; set; }
         public int Price { get; set; }
-        public bool IsAvailable { get; set; }
+        //public bool IsAvailable { get; set; }
         //navigation property
+        //[JsonIgnore]
         public ICollection<Reservation> Reservations { get; set; }
     }
 }

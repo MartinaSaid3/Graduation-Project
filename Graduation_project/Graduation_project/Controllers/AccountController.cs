@@ -107,10 +107,11 @@ namespace Graduation_project.Controllers
             }
 
             var token = await userManager.GeneratePasswordResetTokenAsync(user);
-            var resetLink = Url.Action("ResetPassword", "Authentication", new { email = model.Email, token = token }, Request.Scheme);
+            var resetLink = Url.Action("ResetPassword", "Account", new { email = model.Email, token = token }, Request.Scheme);
+            var emailService = new EmailService("smtp.gmail.com", 587, "your_email@gmail.com", "your_gmail_password");
+            await emailService.SendEmailAsync(user.Email, "Password Reset", "Please click the following link to reset your password: " + resetLink);
 
-            // Send reset link to user's email
-            // Example: EmailSender.SendEmail(user.Email, "Password Reset", resetLink);
+            
 
             return Ok("If your email is registered, you will receive instructions to reset your password.");
         }

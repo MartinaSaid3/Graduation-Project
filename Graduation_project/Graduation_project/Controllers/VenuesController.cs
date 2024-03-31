@@ -19,23 +19,42 @@ namespace Graduation_project.Controllers
 
         // GET: api/Venues
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Venue>>> GetVenues()
+        public async Task<ActionResult<IEnumerable<VenueDto>>> GetVenues()
         {
-            return await context.Venues.ToListAsync();
+            var venue = await context.Venues.ToListAsync();
+            var venueDto = venue.Select(x=> new VenueDto
+            {
+                VenueId=x.VenueId,
+                Name=x.Name,
+                Price=x.Price,
+                Capacity=x.Capacity,
+                Description=x.Description,
+            }).ToList();
+            return Ok(venueDto);
         }
 
         // GET: api/Venues/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Venue>> GetVenue(int id)
         {
-            var venue = await context.Venues.FindAsync(id);
+            Venue venue = await context.Venues.Include(s=>s.Reservations).FirstOrDefaultAsync(v=>v.VenueId == id);
+            VenueDto venueDto = new VenueDto();
+            venueDto.VenueId = venue.VenueId;
+            venueDto.Description = venue.Description;
+            venueDto.Name = venue.Name;
+            venueDto.Price = venue.Price;
+            venueDto.Capacity = venue.Capacity;
+            foreach (var item in venue.Reservations)
+            {
+                venueDto.Reservations.Add(item.Id);
+            }
 
-            if (venue == null)
+            if (venueDto == null)
             {
                 return NotFound();
             }
 
-            return venue;
+            return Ok(venueDto);
         }
 
         // POST: api/Venues
