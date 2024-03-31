@@ -2,9 +2,12 @@
 
 namespace Graduation_project.Models
 {
-       public class ApplicationUser : IdentityUser //This includes features like password hashing, email confirmation, two-factor authentication, and more
-        {
+    public class ApplicationUser : IdentityUser //This includes features like password hashing, email confirmation, two-factor authentication, and more
+    {
+        public string Role { get; set; }
+        public string Gender { get; set; }
+        public string Address { get; set; }
+        public string SSN { get; set; }
+    }
 
-        }
-    
 }
