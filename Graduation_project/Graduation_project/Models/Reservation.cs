@@ -12,6 +12,7 @@ namespace Graduation_project.Models
         public int VenueId { get; set; }
 
         public string SpecialRequests { get; set; }
+        public string Email { get; set; }
 
         //navigation property
         public Venue Venue { get; set; }

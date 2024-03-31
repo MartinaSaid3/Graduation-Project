@@ -5,7 +5,7 @@
 namespace Graduation_project.Migrations
 {
     /// <inheritdoc />
-    public partial class r : Migration
+    public partial class reservation : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

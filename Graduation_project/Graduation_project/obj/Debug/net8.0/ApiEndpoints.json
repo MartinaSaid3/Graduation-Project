@@ -33,6 +33,16 @@
   },
   {
     "ContainingType": "Graduation_project.Controllers.AccountController",
+    "Method": "LogOutAsync",
+    "RelativePath": "api/Account/Logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Graduation_project.Controllers.AccountController",
     "Method": "Registration",
     "RelativePath": "api/Account/register",
     "HttpMethod": "POST",
