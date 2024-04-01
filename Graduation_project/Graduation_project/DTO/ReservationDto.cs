@@ -2,7 +2,7 @@
 {
     public class ReservationDto
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
        
         public DateTime Date { get; set; }
         public int NumOfGuests { get; set; }

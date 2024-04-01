@@ -95,21 +95,21 @@
   },
   {
     "ContainingType": "Graduation_project.Controllers.ReservationController",
-    "Method": "PostReservation",
+    "Method": "CreateReservation",
     "RelativePath": "api/Reservation",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "reservationDTO",
+        "Name": "reservationDto",
         "Type": "Graduation_project.DTO.ReservationDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "Graduation_project.Models.Reservation",
+        "Type": "Graduation_project.DTO.ReservationDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
