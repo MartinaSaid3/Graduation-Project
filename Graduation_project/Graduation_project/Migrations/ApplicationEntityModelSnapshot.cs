@@ -31,10 +31,6 @@ namespace Graduation_project.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -171,47 +167,59 @@ namespace Graduation_project.Migrations
 
             modelBuilder.Entity("Graduation_project.Models.Venue", b =>
                 {
-                    b.Property<int>("VenueId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VenueId"));
-
-                    b.Property<int>("Capacity")
-                        .HasColumnType("int");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-
-                    b.Property<byte[]>("ImagesData")
+                    b.Property<string>("HighTea")
                         .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsAvailable")
-                        .HasColumnType("bit");
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("MaxCapacity")
+                        .HasColumnType("float");
+
+                    b.Property<double>("MinCapacity")
+                        .HasColumnType("float");
+
+                    b.Property<double>("MinPrice")
+                        .HasColumnType("float");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Type")
+                    b.Property<string>("OpenBuffet")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ValidDate")
-                        .HasColumnType("int");
+                    b.Property<double>("PriceHighTeaPerPerson")
+                        .HasColumnType("float");
 
-                    b.Property<string>("VenueLocation")
+                    b.Property<double>("PriceOpenBuffetPerPerson")
+                        .HasColumnType("float");
+
+                    b.Property<double>("PriceSetMenuePerPerson")
+                        .HasColumnType("float");
+
+                    b.Property<string>("SetMenue")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("VenueId");
+                    b.Property<double>("TotalPrice")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Venues");
                 });

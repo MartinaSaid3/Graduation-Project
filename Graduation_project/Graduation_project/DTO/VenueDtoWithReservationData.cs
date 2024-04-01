@@ -1,11 +1,9 @@
-﻿using Graduation_project.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Graduation_project.DTO
 {
-    public class VenueDTO
+    public class VenueDtoWithReservationData
     {
-
         [Required]
         [StringLength(15, MinimumLength = 3)]
         public string Name { get; set; }
@@ -18,6 +16,17 @@ namespace Graduation_project.DTO
 
         [Required]
         public string Description { get; set; }
+
+
+        //[Required]
+        //public double PriceOpenBuffetPerPerson { get; set; }
+
+        //[Required]
+        //public double PriceSetMenuePerPerson { get; set; }
+
+        //[Required]
+        //public double PriceHighTeaPerPerson { get; set; }
+
 
         [Required]
         public string OpenBuffet { get; set; }
@@ -33,19 +42,12 @@ namespace Graduation_project.DTO
         [Required]
         public double MinCapacity { get; set; }
 
-
-        [Required]
-        public double PriceOpenBuffetPerPerson { get; set; }
-
-        [Required]
-        public double PriceSetMenuePerPerson { get; set; }
-
-        [Required]
-        public double PriceHighTeaPerPerson { get; set; }
+        public double PriceStartingFrom { get; set; }
 
 
         //[Required]
         //public List<byte[]> Images { get; set; }
 
+        public List<DateTime> ReservationDates { get; set; }
     }
 }

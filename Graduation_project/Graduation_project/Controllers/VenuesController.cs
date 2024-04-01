@@ -11,139 +11,466 @@ namespace Graduation_project.Controllers
     [ApiController]
     public class VenuesController : ControllerBase
     {
-        private readonly ApplicationEntity context;
+        private readonly ApplicationEntity Context;
 
         public VenuesController(ApplicationEntity _context)
         {
-            context = _context;
+            Context = _context;
         }
 
-        // GET: api/Venues
+
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<VenueDto>>> GetVenues()
+        public async Task<IActionResult> GetAllVenue()
         {
-            var venue = await context.Venues.ToListAsync();
-            var venueDto = venue.Select(x=> new VenueDto
+            List<Venue> VenueList = await Context.Venues.
+                Include(a => a.Reservations).ToListAsync();
+            if (VenueList.Count > 0)
             {
-                VenueId=x.VenueId,
-                Name=x.Name,
-                Price=x.Price,
-                Capacity=x.Capacity,
-                Description=x.Description,
-            }).ToList();
-            return Ok(venueDto);
+                List<VenueWithReservationIdDTO> ListOfVenueDto = new List<VenueWithReservationIdDTO>();
+
+                foreach (var item in VenueList)
+                {
+
+                    VenueWithReservationIdDTO venueDto = new VenueWithReservationIdDTO
+                    {
+                        Name = item.Name,
+                        Description = item.Description,
+                        Location = item.Location,
+                        OpenBuffet = item.OpenBuffet,
+                        SetMenue = item.SetMenue,
+                        HighTea = item.HighTea,
+                        MaxCapacity = item.MaxCapacity,
+                        MinCapacity = item.MinCapacity,
+                        PriceStartingFrom = item.MinPrice,
+
+                    };
+
+                    ListOfVenueDto.Add(venueDto);
+                }
+                return Ok(ListOfVenueDto);
+
+            }
+            return BadRequest("there are no halls");
+
         }
 
-        // GET: api/Venues/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Venue>> GetVenue(int id)
+
+        // hai3red el reesrvations id m3ah
+        [HttpGet]
+        [Route("{id:int}", Name = "GetOneVenueRoute")]
+        public IActionResult GetVenueById(int id)
         {
-            Venue venue = await context.Venues.Include(s=>s.Reservations).FirstOrDefaultAsync(v=>v.VenueId == id);
-            VenueDto venueDto = new VenueDto();
-            venueDto.VenueId = venue.VenueId;
-            venueDto.Description = venue.Description;
-            venueDto.Name = venue.Name;
-            venueDto.Price = venue.Price;
-            venueDto.Capacity = venue.Capacity;
-            foreach (var item in venue.Reservations)
+            if (id == null)
             {
-                venueDto.Reservations.Add(item.Id);
+                return BadRequest("must enter id ");
             }
+            Venue v1 = Context.Venues.Include(a => a.Reservations).FirstOrDefault(a => a.Id == id);
 
-            if (venueDto == null)
+            if (v1 != null)
             {
-                return NotFound();
-            }
+                VenueWithReservationIdDTO VenueDto = new VenueWithReservationIdDTO();
+                VenueDto.Name = v1.Name;
+                VenueDto.Description = v1.Description;
+                VenueDto.Location = v1.Location;
+                VenueDto.OpenBuffet = v1.OpenBuffet;
+                VenueDto.SetMenue = v1.SetMenue;
+                VenueDto.HighTea = v1.HighTea;
+                VenueDto.PriceStartingFrom = v1.MinPrice;
+                VenueDto.MinCapacity = v1.MinCapacity;
+                VenueDto.MaxCapacity = v1.MaxCapacity;
 
-            return Ok(venueDto);
+                foreach (var item in v1.Reservations)
+                {
+                    VenueDto.ReservationId.Add(item.Id);
+                }
+
+                return Ok(VenueDto);
+            }
+            return BadRequest("This Venue DoesNot Exist");
+
         }
 
-        // POST: api/Venues
+
+
         [HttpPost]
-        
-        public async Task<ActionResult<Venue>> PostVenue(ServicesProviderVenueDto ServicesProvidervenueDTO)
+        [Route("/{venueId:int}/{selectedService:alpha}/{numberOfGuests:int}")]
+        public async Task<IActionResult> CalculateTotalPrice(int venueId, string selectedService, int numberOfGuests)
         {
-            var venue = new Venue
-            {
-                Name = ServicesProvidervenueDTO.Name,
-                VenueLocation = ServicesProvidervenueDTO.Location,
-                Capacity = ServicesProvidervenueDTO.Capacity,
-                Type = ServicesProvidervenueDTO.Type,
-                Description = ServicesProvidervenueDTO.Description,
-                Price = ServicesProvidervenueDTO.Price,
-                ValidDate = ServicesProvidervenueDTO.ValidDate,
-                ImagesData = ServicesProvidervenueDTO.ImagesData,
-            };
 
-            context.Venues.Add(venue);
-            await context.SaveChangesAsync();
+            Venue venue = await Context.Venues.FirstOrDefaultAsync(v => v.Id == venueId);
 
-            return CreatedAtAction(nameof(GetVenue), new { id = venue.VenueId }, venue);
-        }
-
-        // PUT: api/Venues/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutVenue(int id, VenueDto venueDTO)
-        {
-            if (id != venueDTO.VenueId)
-            {
-                return BadRequest();
-            }
-
-            var venue = await context.Venues.FindAsync(id);
             if (venue == null)
             {
-                return NotFound();
+                return NotFound("Venue not found.");
             }
 
-            // Update venue properties
-            venue.Name = venueDTO.Name;
-            venue.VenueLocation = venueDTO.Location;
-            venue.Capacity = venueDTO.Capacity;
-            venue.Type = venueDTO.Type;
-            venue.Description = venueDTO.Description;
-            venue.Price = venueDTO.Price;
+            double totalPrice = 0;
 
-            context.Entry(venue).State = EntityState.Modified;
+            // Trim and convert selectedService to lower case for case-insensitive comparison
+            selectedService = selectedService.Trim().ToLower();
 
-            try
+            // Validate the selected service
+            switch (selectedService)
             {
-                await context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!VenueExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                case "openbuffet":
+                    totalPrice = numberOfGuests * venue.PriceOpenBuffetPerPerson;
+                    break;
+                case "setmenue":
+                    totalPrice = numberOfGuests * venue.PriceSetMenuePerPerson;
+                    break;
+                case "hightea":
+                    totalPrice = numberOfGuests * venue.PriceHighTeaPerPerson;
+                    break;
+                default:
+                    return BadRequest("Invalid service selected.");
             }
 
-            return NoContent();
+            //venue.TotalPrice = totalPrice;
+            //await Context.Venues.AddAsync(venue);
+            //await Context.SaveChangesAsync();
+
+            return Ok($"Total price for {numberOfGuests} guests: {totalPrice}");
         }
 
-        // DELETE: api/Venues/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteVenue(int id)
+
+        // hai3red el reservations dates
+        [HttpGet]
+        [Route("Name/{Name:alpha}", Name = "GetByName")]
+        public async Task<IActionResult> GetVenueByName(string Name)
         {
-            var venue = await context.Venues.FindAsync(id);
-            if (venue == null)
+            if (Name == null)
             {
-                return NotFound();
+                return BadRequest("you must enter name");
             }
 
-            context.Venues.Remove(venue);
-            await context.SaveChangesAsync();
+            List<Venue> VenueList = await Context.Venues
+                .Include(v => v.Reservations)
+                .Where(a => a.Name == Name).ToListAsync();
 
-            return NoContent();
+            if (VenueList.Count == 0)
+            {
+                BadRequest("There are no Venue with the same name");
+            }
+
+            List<VenueDtoWithReservationData> ListVenueDTO = new List<VenueDtoWithReservationData>();
+
+            foreach (var item in VenueList)
+            {
+                VenueDtoWithReservationData venueDto = new VenueDtoWithReservationData
+                {
+                    Name = item.Name,
+                    Description = item.Description,
+                    Location = item.Location,
+                    OpenBuffet = item.OpenBuffet,
+                    SetMenue = item.SetMenue,
+                    HighTea = item.HighTea,
+                    MaxCapacity = item.MaxCapacity,
+                    MinCapacity = item.MinCapacity,
+                    PriceStartingFrom = item.MinPrice,
+                    ReservationDates = new List<DateTime>() // Initialize the list
+                };
+
+                foreach (var reservation in item.Reservations)
+                {
+                    venueDto.ReservationDates.Add(reservation.Date);
+                }
+
+
+                ListVenueDTO.Add(venueDto);
+            }
+
+            return Ok(ListVenueDTO);
+
         }
 
-        private bool VenueExists(int id)
+
+        [HttpGet]
+        [Route("price/{price:int}", Name = "GetByPrice")]
+        public async Task<IActionResult> GetVenueByPrice(double price)
         {
-            return context.Venues.Any(e => e.VenueId == id);
+            if (price == null)
+            {
+                return BadRequest("you must enter price");
+            }
+
+            List<Venue> VenueList = await Context.Venues.
+                Include(v => v.Reservations)
+                .Where(a => a.MinPrice <= price).ToListAsync();
+
+            if (VenueList.Count == 0)
+            {
+                BadRequest("There are no Venue with the same price");
+            }
+
+            List<VenueDtoWithReservationData> ListVenueDTO = new List<VenueDtoWithReservationData>();
+
+            foreach (var item in VenueList)
+            {
+                VenueDtoWithReservationData VenueDto = new VenueDtoWithReservationData
+                {
+                    Name = item.Name,
+                    Description = item.Description,
+                    Location = item.Location,
+                    OpenBuffet = item.OpenBuffet,
+                    SetMenue = item.SetMenue,
+                    HighTea = item.HighTea,
+                    MaxCapacity = item.MaxCapacity,
+                    MinCapacity = item.MinCapacity,
+                    PriceStartingFrom = item.MinPrice,
+                    ReservationDates = new List<DateTime>() // Initialize the list
+                };
+
+                foreach (var reservation in item.Reservations)
+                {
+                    VenueDto.ReservationDates.Add(reservation.Date);
+                }
+                ListVenueDTO.Add(VenueDto);
+            }
+
+            return Ok(ListVenueDTO);
+
         }
+
+
+
+        //[HttpGet]
+        //[Route("/PriceAndLocation{price:int}/{location:alpha}")]
+        //public async Task< IActionResult> GetVenueByLocationAndPrice(double price, string location)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //      List<Venue> ListVenue = await Context.Venues.Include(v=>v.Reservations).
+        //            Where(Venue =>
+        //      Venue.MinPrice <= price &&
+        //      Venue.Location.Contains(location)).ToListAsync();
+
+
+
+        //        if (ListVenue.Count == 0)
+        //        {
+        //            return BadRequest("no venues with the same price and location");
+        //        }
+
+
+        //        List<VenueDtoWithReservationData> ListVenueDto = new List<VenueDtoWithReservationData>();
+
+        //        foreach (var venue in ListVenue)
+        //        {
+        //            VenueDtoWithReservationData venueDto = new VenueDtoWithReservationData
+        //            {
+        //                Name = venue.Name,
+        //                Description = venue.Description,
+        //                Location = venue.Location,
+        //                MaxCapacity = venue.MaxCapacity,
+        //                MinCapacity = venue.MinCapacity,
+        //                MaxPrice = venue.MaxPrice,
+        //                MinPrice = venue.MinPrice,
+        //                ReservationDates = new List<DateTime>()
+
+
+        //            };
+
+        //            foreach(var reservation in venue.Reservations)
+        //            {
+        //                venueDto.ReservationDates.Add(reservation.ReservationDate);
+        //            }
+
+        //            ListVenueDto.Add(venueDto);
+        //        }
+        //        return Ok(ListVenueDto);
+        //    }
+        //    return BadRequest(ModelState);
+        //}
+
+
+
+
+
+
+        [HttpGet]
+        [Route("{Location:alpha}")]
+        public async Task<IActionResult> GetVenueByLocation(string Location)
+        {
+
+
+            if (string.IsNullOrWhiteSpace(Location))
+            {
+                return BadRequest("You must enter a location");
+            }
+
+            List<Venue> VenueList = await Context.Venues.
+                Include(v => v.Reservations)
+               .Where(a => a.Location.Contains(Location)).ToListAsync();
+
+            if (VenueList == null || VenueList.Count == 0)
+            {
+                BadRequest("There are no Venue with the same city");
+            }
+
+            List<VenueDtoWithReservationData> ListVenueDTO = new List<VenueDtoWithReservationData>();
+
+            foreach (var item in VenueList)
+            {
+                VenueDtoWithReservationData VenueDto = new VenueDtoWithReservationData
+                {
+                    Name = item.Name,
+                    Description = item.Description,
+                    Location = item.Location,
+                    OpenBuffet = item.OpenBuffet,
+                    SetMenue = item.SetMenue,
+                    HighTea = item.HighTea,
+                    MaxCapacity = item.MaxCapacity,
+                    MinCapacity = item.MinCapacity,
+                    PriceStartingFrom = item.MinPrice,
+
+                    ReservationDates = new List<DateTime>() // Initialize the list
+                };
+
+
+                foreach (var reservation in item.Reservations)
+                {
+                    VenueDto.ReservationDates.Add(reservation.Date);
+                }
+                ListVenueDTO.Add(VenueDto);
+            }
+
+            return Ok(ListVenueDTO);
+
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> SaveVenue(VenueDTO VenueDto/*, List<IFormFile> venueimg*/)
+        {
+            if (ModelState.IsValid)
+            {
+                Venue venue = new Venue();
+                venue.Name = VenueDto.Name;
+                venue.Description = VenueDto.Description;
+                venue.Location = VenueDto.Location;
+                venue.OpenBuffet = VenueDto.OpenBuffet;
+                venue.SetMenue = VenueDto.SetMenue;
+                venue.HighTea = VenueDto.HighTea;
+                venue.PriceOpenBuffetPerPerson = VenueDto.PriceOpenBuffetPerPerson;
+                venue.PriceSetMenuePerPerson = VenueDto.PriceSetMenuePerPerson;
+                venue.PriceHighTeaPerPerson = VenueDto.PriceHighTeaPerPerson;
+                venue.MinCapacity = VenueDto.MinCapacity;
+                venue.MaxCapacity = VenueDto.MaxCapacity;
+
+                //// Check if at least one image is selected
+                //if (venueimg != null && venueimg.Count > 0)
+                //{
+                //    try
+                //    {
+                //        // Initialize the list of byte arrays to store the image data
+                //        List<byte[]> imagesList = new List<byte[]>();
+
+                //        // Iterate over each IFormFile
+                //        foreach (var img in venueimg)
+                //        {
+                //            if (img != null && img.Length > 0)
+                //            {
+                //                // Read the image data into a byte array
+                //                using (var ms = new MemoryStream())
+                //                {
+                //                    await img.CopyToAsync(ms);
+                //                    imagesList.Add(ms.ToArray());
+                //                }
+                //            }
+                //        }
+
+                //// Assign the list of byte arrays to the Images property of the Venue
+                //venue.Images = imagesList;
+
+                // Save the venue to the database
+                Context.Venues.Add(venue);
+                await Context.SaveChangesAsync();
+
+                // Get the URL for the newly created venue
+                string url = Url.Link("GetOneVenueRoute", new { id = venue.Id });
+                return Created(url, venue);
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        // Log the exception or handle it appropriately
+                //        return StatusCode(500, "An error occurred while processing the images: " + ex.Message);
+                //    }
+                //}
+                //else
+                //{
+                //    return BadRequest("Please select at least one image.");
+                //}
+            }
+
+            return BadRequest(ModelState);
+
+        }
+
+
+
+        [HttpPut]
+        [Route("{id}")]
+        public async Task<IActionResult> UpdateVenue([FromRoute] int id, [FromBody] VenueDTO VenueDto)
+        {
+            if (ModelState.IsValid)
+            {
+                Venue OldVenue = await Context.Venues.FirstOrDefaultAsync(a => a.Id == id);
+
+                if (OldVenue != null)
+                {
+                    OldVenue.Name = VenueDto.Name;
+                    OldVenue.Description = VenueDto.Description;
+                    OldVenue.Location = VenueDto.Location;
+                    OldVenue.OpenBuffet = VenueDto.OpenBuffet;
+                    OldVenue.SetMenue = VenueDto.SetMenue;
+                    OldVenue.HighTea = VenueDto.HighTea;
+                    OldVenue.PriceOpenBuffetPerPerson = VenueDto.PriceOpenBuffetPerPerson;
+                    OldVenue.PriceSetMenuePerPerson = VenueDto.PriceSetMenuePerPerson;
+                    OldVenue.PriceHighTeaPerPerson = VenueDto.PriceHighTeaPerPerson;
+                    OldVenue.MaxCapacity = VenueDto.MaxCapacity;
+                    OldVenue.MinCapacity = VenueDto.MinCapacity;
+
+
+                    await Context.SaveChangesAsync();
+                    return StatusCode(204, OldVenue);
+                }
+                return BadRequest("Id Not Valid");
+
+
+            }
+            return BadRequest(ModelState);
+        }
+
+
+
+        [HttpDelete]
+        [Route("{id:int}")]
+        public async Task<IActionResult> RemoveVenue(int id)
+        {
+            if (id == null)
+            {
+                return BadRequest("please enter id");
+            }
+
+            Venue venue = await Context.Venues.FirstOrDefaultAsync(a => a.Id == id);
+
+            if (venue != null)
+            {
+                try
+                {
+                    Context.Venues.Remove(venue);
+                    Context.SaveChanges();
+                    return StatusCode(204, "venue removed successfully");
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
+
+            }
+            return BadRequest("there is no venue with same id");
+
+        }
+
     }
 }
