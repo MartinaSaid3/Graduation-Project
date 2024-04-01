@@ -1,0 +1,70 @@
+<div id="gallary" class="container-fluid d-flex flex-column align-items-center">
+  <!------------------------------start header Line ------------------->
+  <div class="d-flex w-100 my-5 flex-row-reverse align-items-center">
+    <span class="w-44"></span>
+    <h2 class="me-3 fw-bolder py-4 fs-3"> Halls Gallary </h2>
+  </div>
+  <!------------------------------end header Line ------------------->
+
+  <div class="d-flex flex-row justify-content-center w-75 gap-4">
+    <a class="text-decoration-none gray-color">All</a>
+    <a class="text-decoration-none gray-color">Alex</a>
+    <a class="text-decoration-none gray-color">Cairo</a>
+    <a class="text-decoration-none gray-color">Behira</a>
+    <a class="text-decoration-none gray-color">Mansoura</a>
+    <a class="text-decoration-none gray-color">Suais</a>
+  </div>
+
+  <div class="position-relative gallery-container px-5">
+    <div class="arrow left fs-3 text-center" (click)="scrollLeft()">
+      &#11164;
+    </div>
+
+    <div>
+      <img src="../../../assets/img/branchright.png" class="branch-size-left position-absolute">
+    </div>
+
+    <div #widgetsContent class="d-flex py-5 flex-row custom-slider-main gap-4 px-3">
+      <div class="info-box position-relative">
+        <a [routerLink]="['/hall/Details']" >
+          <img src="../../../assets/img/omar.jpg" class="info-box">
+        </a>
+        <div class="position-absolute top-50 left-50 d-flex flex-column align-items-center w-100 justify-content-arround">
+          <span class="fs-2 gray-color">Gallaxy</span>
+          <span>Rate</span>
+        </div>
+      </div>
+      <div class="info-box">
+        <img src="../../../assets/img/omar.jpg" class="info-box">
+      </div>
+      <div class="info-box">
+        <img src="../../../assets/img/omar.jpg" class="info-box">
+      </div>
+      <div class="info-box">
+        <img src="../../../assets/img/omar.jpg" class="info-box">
+      </div>
+      <div class="info-box">
+        <img src="../../../assets/img/omar.jpg" class="info-box">
+      </div>
+      <div class="info-box">
+        <img src="../../../assets/img/omar.jpg" class="info-box">
+      </div>
+      <div class="info-box">
+        <img src="../../../assets/img/omar.jpg" class="info-box">
+      </div>
+      <div class="info-box">
+        <img src="../../../assets/img/omar.jpg" class="info-box">
+      </div>
+    </div>
+
+    <div class="">
+      <img src="../../../assets/img/branchleft.png" class="branch-size-right position-absolute">
+    </div>
+
+    <div class="arrow right fs-3 text-center" (click)="scrollRight()">
+      &#11166;
+    </div>
+  </div>
+
+  <button class="btn light-lav-background text-white rounded-5">Show More</button>
+</div>
