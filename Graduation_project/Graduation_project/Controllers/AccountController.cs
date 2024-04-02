@@ -44,7 +44,7 @@ namespace Graduation_project.Controllers
                 IdentityResult result = await userManager.CreateAsync(user, UserDto.Password);
                 if (result.Succeeded)
                 {
-                    return Ok("Account Added Sussefully");
+                    return Ok(new { message = "success" });
                 }
                 return BadRequest(result.Errors.FirstOrDefault());
             }
