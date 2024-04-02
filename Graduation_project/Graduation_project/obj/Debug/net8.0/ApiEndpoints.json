@@ -209,6 +209,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Graduation_project.Controllers.ReviewController",
+    "Method": "SubmitReview",
+    "RelativePath": "api/Review",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "reviewDto",
+        "Type": "Graduation_project.DTO.ReviewDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Graduation_project.Controllers.VenuesController",
     "Method": "GetAllVenue",
     "RelativePath": "api/Venues",
@@ -227,9 +243,64 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "VenueDto",
-        "Type": "Graduation_project.DTO.VenueDTO",
-        "IsRequired": true
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Location",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Description",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "OpenBuffet",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "SetMenue",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "HighTea",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MaxCapacity",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "MinCapacity",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "PriceOpenBuffetPerPerson",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "PriceSetMenuePerPerson",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "PriceHighTeaPerPerson",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImagesData",
+        "Type": "System.Collections.Generic.List\u00601[[Microsoft.AspNetCore.Http.IFormFile, Microsoft.AspNetCore.Http.Features, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

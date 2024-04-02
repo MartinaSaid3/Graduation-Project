@@ -339,11 +339,16 @@ namespace Graduation_project.Controllers
         }
 
 
+
         [HttpPost]
-        public async Task<IActionResult> SaveVenue(VenueDTO VenueDto/*, List<IFormFile> venueimg*/)
+        public async Task<IActionResult> SaveVenue(VenueDTO VenueDto)
         {
             if (ModelState.IsValid)
             {
+                if (VenueDto.ImagesData == null || VenueDto.ImagesData.Count == 0)
+                {
+                    return BadRequest("No images provided.");
+                }
                 Venue venue = new Venue();
                 venue.Name = VenueDto.Name;
                 venue.Description = VenueDto.Description;
@@ -356,6 +361,8 @@ namespace Graduation_project.Controllers
                 venue.PriceHighTeaPerPerson = VenueDto.PriceHighTeaPerPerson;
                 venue.MinCapacity = VenueDto.MinCapacity;
                 venue.MaxCapacity = VenueDto.MaxCapacity;
+                venue.ImagesData = await ConvertImagesToByteArray(VenueDto.ImagesData); // Convert images to byte array
+
 
                 //// Check if at least one image is selected
                 //if (venueimg != null && venueimg.Count > 0)
@@ -386,6 +393,7 @@ namespace Graduation_project.Controllers
                 Context.Venues.Add(venue);
                 await Context.SaveChangesAsync();
 
+
                 // Get the URL for the newly created venue
                 string url = Url.Link("GetOneVenueRoute", new { id = venue.Id });
                 return Created(url, venue);
@@ -404,6 +412,26 @@ namespace Graduation_project.Controllers
 
             return BadRequest(ModelState);
 
+
+        }
+
+        private async Task<List<byte[]>> ConvertImagesToByteArray(List<IFormFile> imageFiles)
+        {
+            var imageDataList = new List<byte[]>();
+
+            foreach (var imageFile in imageFiles)
+            {
+                if (imageFile != null && imageFile.Length > 0)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await imageFile.CopyToAsync(memoryStream);
+                        imageDataList.Add(memoryStream.ToArray());
+                    }
+                }
+            }
+
+            return imageDataList;
         }
 
 

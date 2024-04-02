@@ -60,8 +60,8 @@ namespace Graduation_project.Models
         public double TotalPrice { get; set; }
 
 
-        //[Required]
-        //public List<byte[]> Images { get; set; }
+        [Required]
+        public List<byte[]> ImagesData { get; set; }
 
 
         //3shan maidfsh elreservation nafsha marten,, bt5ly el obj mawgoud mara w7da fel list

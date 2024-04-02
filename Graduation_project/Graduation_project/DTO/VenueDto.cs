@@ -43,9 +43,8 @@ namespace Graduation_project.DTO
         [Required]
         public double PriceHighTeaPerPerson { get; set; }
 
-
-        //[Required]
-        //public List<byte[]> Images { get; set; }
+        [Required]
+        public List<IFormFile> ImagesData { get; set; }
 
     }
 }

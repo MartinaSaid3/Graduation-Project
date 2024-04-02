@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Graduation_project.Migrations
 {
     [DbContext(typeof(ApplicationEntity))]
-    [Migration("20240401215814_venuetable")]
-    partial class venuetable
+    [Migration("20240402183034_m5")]
+    partial class m5
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -168,6 +168,35 @@ namespace Graduation_project.Migrations
                     b.ToTable("Reservations");
                 });
 
+            modelBuilder.Entity("Graduation_project.Models.Review", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ReservationId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ReviewDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReservationId");
+
+                    b.ToTable("Reviews");
+                });
+
             modelBuilder.Entity("Graduation_project.Models.Venue", b =>
                 {
                     b.Property<int>("Id")
@@ -181,6 +210,10 @@ namespace Graduation_project.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("HighTea")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImagesData")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -380,6 +413,17 @@ namespace Graduation_project.Migrations
                         .IsRequired();
 
                     b.Navigation("Venue");
+                });
+
+            modelBuilder.Entity("Graduation_project.Models.Review", b =>
+                {
+                    b.HasOne("Graduation_project.Models.Reservation", "Reservation")
+                        .WithMany()
+                        .HasForeignKey("ReservationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Reservation");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
