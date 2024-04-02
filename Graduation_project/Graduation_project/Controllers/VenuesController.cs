@@ -364,30 +364,7 @@ namespace Graduation_project.Controllers
                 venue.ImagesData = await ConvertImagesToByteArray(VenueDto.ImagesData); // Convert images to byte array
 
 
-                //// Check if at least one image is selected
-                //if (venueimg != null && venueimg.Count > 0)
-                //{
-                //    try
-                //    {
-                //        // Initialize the list of byte arrays to store the image data
-                //        List<byte[]> imagesList = new List<byte[]>();
-
-                //        // Iterate over each IFormFile
-                //        foreach (var img in venueimg)
-                //        {
-                //            if (img != null && img.Length > 0)
-                //            {
-                //                // Read the image data into a byte array
-                //                using (var ms = new MemoryStream())
-                //                {
-                //                    await img.CopyToAsync(ms);
-                //                    imagesList.Add(ms.ToArray());
-                //                }
-                //            }
-                //        }
-
-                //// Assign the list of byte arrays to the Images property of the Venue
-                //venue.Images = imagesList;
+         
 
                 // Save the venue to the database
                 Context.Venues.Add(venue);
@@ -397,17 +374,7 @@ namespace Graduation_project.Controllers
                 // Get the URL for the newly created venue
                 string url = Url.Link("GetOneVenueRoute", new { id = venue.Id });
                 return Created(url, venue);
-                //    }
-                //    catch (Exception ex)
-                //    {
-                //        // Log the exception or handle it appropriately
-                //        return StatusCode(500, "An error occurred while processing the images: " + ex.Message);
-                //    }
-                //}
-                //else
-                //{
-                //    return BadRequest("Please select at least one image.");
-                //}
+              
             }
 
             return BadRequest(ModelState);
