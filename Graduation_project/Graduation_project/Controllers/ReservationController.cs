@@ -32,37 +32,57 @@ namespace Graduation_project.Controllers
             Reservation reservation = await context.Reservations.Include(s=>s.Venue).FirstOrDefaultAsync(r => r.Id == id);
 
             ReservationDto reservationDto = new ReservationDto();
-            reservationDto.Id = reservation.Id;
+            //reservationDto.Id = reservation.Id;
             reservationDto.VenueId = reservation.VenueId;
             reservationDto.Date = reservation.Date; 
             reservationDto.NumOfGuests = reservation.NumOfGuests;
             reservationDto.SpecialRequests = reservation.SpecialRequests;
+            reservationDto.Email = reservation.Email;
             return Ok(reservationDto); 
         }
 
         // POST: api/Reservations
         [HttpPost]
-        public async Task<ActionResult<Reservation>> PostReservation(ReservationDto reservationDTO)
+        public async Task<ActionResult<ReservationDto>> CreateReservation(ReservationDto reservationDto)
         {
+            // Check if the date is available for reservation
+            if (!IsDateAvailable(reservationDto.Date, reservationDto.VenueId))
+            {
+                return BadRequest("The date is not available for reservation.");
+            }
+
+            // Check if there is already a reservation on the same day
+            if (await context.Reservations.AnyAsync(r => r.Date.Date == reservationDto.Date.Date))
+            {
+                return BadRequest("A reservation already exists for the selected date.");
+            }
+
             var reservation = new Reservation
             {
-                VenueId = reservationDTO.VenueId,
-                Date = reservationDTO.Date,
-                NumOfGuests = reservationDTO.NumOfGuests,
-                SpecialRequests = reservationDTO.SpecialRequests
+                Date = reservationDto.Date,
+                NumOfGuests = reservationDto.NumOfGuests,
+                VenueId = reservationDto.VenueId,
+                SpecialRequests = reservationDto.SpecialRequests,
+                Email = reservationDto.Email
             };
 
             context.Reservations.Add(reservation);
             await context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetReservation), new { id = reservation.Id }, reservation);
+            return CreatedAtAction("GetReservation", new { id = reservation.Id }, reservationDto);
+        }
+
+        private bool IsDateAvailable(DateTime date, int venueId)
+        {
+            // Check if there are any existing reservations for the given date and venue
+            return !context.Reservations.Any(r => r.Date.Date == date.Date && r.VenueId == venueId);
         }
 
         // PUT: api/Reservations/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutReservation(int id, ReservationDto reservationDTO)
         {
-            //Reservation reservation = await context.Reservations.Include(s => s.Venue).FirstOrDefaultAsync(r => r.Id == id);
+            Reservation reservation = await context.Reservations.Include(s => s.Venue).FirstOrDefaultAsync(r => r.Id == id);
 
             //reservationDTO.Id = reservation.Id;
             //reservationDTO.VenueId = reservation.VenueId;
@@ -71,15 +91,26 @@ namespace Graduation_project.Controllers
             //reservationDTO.SpecialRequests = reservation.SpecialRequests;
             //context.Reservations.Update(reservation);
             //await context.SaveChangesAsync();
-            if (id != reservationDTO.Id)
+            if (id != reservation.Id)
             {
                 return BadRequest();
             }
 
-            var reservation = await context.Reservations.FindAsync(id);
+            //var reservation = await context.Reservations.FindAsync(id);
             if (reservation == null)
             {
                 return NotFound();
+            }
+            // Check if the date is available for reservation
+            if (!IsDateAvailable(reservationDTO.Date, reservationDTO.VenueId))
+            {
+                return BadRequest("The date is not available for reservation.");
+            }
+
+            // Check if there is already a reservation on the same day
+            if (await context.Reservations.AnyAsync(r => r.Date.Date == reservationDTO.Date.Date))
+            {
+                return BadRequest("A reservation already exists for the selected date.");
             }
 
             // Update reservation properties
@@ -87,6 +118,7 @@ namespace Graduation_project.Controllers
             reservation.Date = reservationDTO.Date;
             reservation.NumOfGuests = reservationDTO.NumOfGuests;
             reservation.SpecialRequests = reservationDTO.SpecialRequests;
+            reservation.Email = reservationDTO.Email;
             // Update other properties as needed
 
             context.Entry(reservation).State = EntityState.Modified;

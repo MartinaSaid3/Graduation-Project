@@ -1,5 +1,6 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "WorkspaceRootPath": "C:\\Users\\M\u0026M\\source\\repos\\GradProject\\Graduation_project\\",
   "Documents": [
     {
@@ -16,6 +17,33 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\M\u0026M\\source\\repos\\GradProject\\Graduation_project\\Graduation_project\\DTO\\VenueDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Graduation_project\\DTO\\VenueDto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+  "WorkspaceRootPath": "D:\\Graduation_project_new\\Graduation_project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|D:\\Graduation_project_new\\Graduation_project\\graduation_project\\controllers\\venuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|solutionrelative:graduation_project\\controllers\\venuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|D:\\Graduation_project_new\\Graduation_project\\graduation_project\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|solutionrelative:graduation_project\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|D:\\Graduation_project_new\\Graduation_project\\graduation_project\\models\\venue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|solutionrelative:graduation_project\\models\\venue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|D:\\Graduation_project_new\\Graduation_project\\graduation_project\\dto\\reviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|solutionrelative:graduation_project\\dto\\reviewdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|D:\\Graduation_project_new\\Graduation_project\\graduation_project\\models\\applicationentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|solutionrelative:graduation_project\\models\\applicationentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|D:\\Graduation_project_new\\Graduation_project\\graduation_project\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|solutionrelative:graduation_project\\models\\review.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> f3fcf42ca9138f6011847ccd20835c954d126b5d
     }
   ],
   "DocumentGroupContainers": [
@@ -25,7 +53,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
           "SelectedChildIndex": 22,
+=======
+          "SelectedChildIndex": 2,
+>>>>>>> f3fcf42ca9138f6011847ccd20835c954d126b5d
           "Children": [
             {
               "$type": "Bookmark",
@@ -117,6 +149,7 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\M\u0026M\\AppData\\Local\\Temp\\.vsdbgsrc\\887e4d192cf3b8c668b171df484b89ccc3d011109f35365ba684c154bffd795b\\Program.cs",
@@ -139,10 +172,35 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-01T02:53:46.181Z",
+=======
+              "DocumentIndex": 2,
+              "Title": "Venue.cs",
+              "DocumentMoniker": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Models\\Venue.cs",
+              "RelativeDocumentMoniker": "Graduation_project\\Models\\Venue.cs",
+              "ToolTip": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Models\\Venue.cs",
+              "RelativeToolTip": "Graduation_project\\Models\\Venue.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAAwDcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T18:25:06.476Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VenuesController.cs",
+              "DocumentMoniker": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Controllers\\VenuesController.cs",
+              "RelativeDocumentMoniker": "Graduation_project\\Controllers\\VenuesController.cs",
+              "ToolTip": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Controllers\\VenuesController.cs",
+              "RelativeToolTip": "Graduation_project\\Controllers\\VenuesController.cs",
+              "ViewState": "AQIAAGoBAAAAAAAAAAAAAHgBAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T18:03:22.994Z",
+>>>>>>> f3fcf42ca9138f6011847ccd20835c954d126b5d
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 3,
               "Title": "VenueDto.cs",
               "DocumentMoniker": "C:\\Users\\M\u0026M\\source\\repos\\GradProject\\Graduation_project\\Graduation_project\\DTO\\VenueDto.cs",
@@ -153,10 +211,34 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-01T02:53:40.096Z",
               "EditorCaption": ""
+=======
+              "DocumentIndex": 4,
+              "Title": "ApplicationEntity.cs",
+              "DocumentMoniker": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Models\\ApplicationEntity.cs",
+              "RelativeDocumentMoniker": "Graduation_project\\Models\\ApplicationEntity.cs",
+              "ToolTip": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Models\\ApplicationEntity.cs",
+              "RelativeToolTip": "Graduation_project\\Models\\ApplicationEntity.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T15:32:38.87Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ReviewDTO.cs",
+              "DocumentMoniker": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\DTO\\ReviewDTO.cs",
+              "RelativeDocumentMoniker": "Graduation_project\\DTO\\ReviewDTO.cs",
+              "ToolTip": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\DTO\\ReviewDTO.cs",
+              "RelativeToolTip": "Graduation_project\\DTO\\ReviewDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T14:10:34.303Z"
+>>>>>>> f3fcf42ca9138f6011847ccd20835c954d126b5d
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+<<<<<<< HEAD
               "Title": "ReservationDto.cs",
               "DocumentMoniker": "C:\\Users\\M\u0026M\\source\\repos\\GradProject\\Graduation_project\\Graduation_project\\DTO\\ReservationDto.cs",
               "RelativeDocumentMoniker": "Graduation_project\\DTO\\ReservationDto.cs",
@@ -166,6 +248,29 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-01T02:53:31.702Z",
               "EditorCaption": ""
+=======
+              "Title": "ReviewController.cs",
+              "DocumentMoniker": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Controllers\\ReviewController.cs",
+              "RelativeDocumentMoniker": "Graduation_project\\Controllers\\ReviewController.cs",
+              "ToolTip": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Controllers\\ReviewController.cs",
+              "RelativeToolTip": "Graduation_project\\Controllers\\ReviewController.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAUwC8AAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T14:08:42.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Review.cs",
+              "DocumentMoniker": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Models\\Review.cs",
+              "RelativeDocumentMoniker": "Graduation_project\\Models\\Review.cs",
+              "ToolTip": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Models\\Review.cs",
+              "RelativeToolTip": "Graduation_project\\Models\\Review.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-02T13:57:58.451Z"
+>>>>>>> f3fcf42ca9138f6011847ccd20835c954d126b5d
             }
           ]
         }
