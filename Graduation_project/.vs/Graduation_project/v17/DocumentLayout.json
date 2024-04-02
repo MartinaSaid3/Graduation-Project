@@ -11,10 +11,6 @@
       "RelativeMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|solutionrelative:graduation_project\\dto\\reservationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\graduation_project\\migrations\\20240331153635_reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|solutionrelative:graduation_project\\migrations\\20240331153635_reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\graduation_project\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|solutionrelative:graduation_project\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -43,8 +39,12 @@
       "RelativeMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|solutionrelative:graduation_project\\dto\\venuedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Migrations\\20240401155628_reservee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|solutionrelative:Graduation_project\\Migrations\\20240401155628_reservee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Migrations\\20240401155628_reservee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Graduation_project\\Migrations\\20240401155628_reservee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\graduation_project\\migrations\\20240331153635_reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:graduation_project\\migrations\\20240331153635_reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,7 +62,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "20240401155628_reservee.cs",
               "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Migrations\\20240401155628_reservee.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Migrations\\20240401155628_reservee.cs",
@@ -70,11 +70,11 @@
               "RelativeToolTip": "Graduation_project\\Migrations\\20240401155628_reservee.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-01T15:56:28.963Z"
+              "WhenOpened": "2024-04-02T18:23:33.151Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "20240331153635_reservation.cs",
               "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Migrations\\20240331153635_reservation.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Migrations\\20240331153635_reservation.cs",
@@ -82,7 +82,7 @@
               "RelativeToolTip": "Graduation_project\\Migrations\\20240331153635_reservation.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-31T15:36:36.226Z"
+              "WhenOpened": "2024-04-02T18:23:33.207Z"
             },
             {
               "$type": "Document",
@@ -98,7 +98,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Reservation.cs",
               "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Models\\Reservation.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Models\\Reservation.cs",
@@ -123,7 +123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "ApplicationEntityModelSnapshot.cs",
               "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Migrations\\ApplicationEntityModelSnapshot.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Migrations\\ApplicationEntityModelSnapshot.cs",
@@ -135,7 +135,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Venue.cs",
               "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Models\\Venue.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Models\\Venue.cs",
@@ -147,7 +147,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "EmailService.cs",
               "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Models\\EmailService.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Models\\EmailService.cs",
@@ -159,7 +159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "AccountController.cs",
               "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Controllers\\AccountController.cs",
@@ -171,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "VenuesController.cs",
               "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\Controllers\\VenuesController.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Controllers\\VenuesController.cs",
@@ -183,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "VenueDto.cs",
               "DocumentMoniker": "D:\\ITI\\new\\graduation project\\Graduation Project Repo\\Graduation_project\\Graduation_project\\DTO\\VenueDto.cs",
               "RelativeDocumentMoniker": "Graduation_project\\DTO\\VenueDto.cs",

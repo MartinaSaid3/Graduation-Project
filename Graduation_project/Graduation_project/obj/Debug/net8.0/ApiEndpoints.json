@@ -1,5 +1,31 @@
 [
   {
+    "ContainingType": "Graduation_project.Controllers.VenuesController",
+    "Method": "CalculateTotalPrice",
+    "RelativePath": "{venueId}/{selectedService}/{numberOfGuests}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "venueId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "selectedService",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "numberOfGuests",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Graduation_project.Controllers.AccountController",
     "Method": "ForgetPassword",
     "RelativePath": "api/Account/ForgetPassword",
@@ -184,53 +210,33 @@
   },
   {
     "ContainingType": "Graduation_project.Controllers.VenuesController",
-    "Method": "GetVenues",
+    "Method": "GetAllVenue",
     "RelativePath": "api/Venues",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Graduation_project.DTO.VenueDto, Graduation_project, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Graduation_project.Controllers.VenuesController",
-    "Method": "PostVenue",
+    "Method": "SaveVenue",
     "RelativePath": "api/Venues",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "venueDTO",
-        "Type": "Graduation_project.DTO.VenueDto",
+        "Name": "VenueDto",
+        "Type": "Graduation_project.DTO.VenueDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Graduation_project.Models.Venue",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Graduation_project.Controllers.VenuesController",
-    "Method": "GetVenue",
+    "Method": "GetVenueById",
     "RelativePath": "api/Venues/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -242,21 +248,11 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "Graduation_project.Models.Venue",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "Graduation_project.Controllers.VenuesController",
-    "Method": "PutVenue",
+    "Method": "UpdateVenue",
     "RelativePath": "api/Venues/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -268,8 +264,8 @@
         "IsRequired": true
       },
       {
-        "Name": "venueDTO",
-        "Type": "Graduation_project.DTO.VenueDto",
+        "Name": "VenueDto",
+        "Type": "Graduation_project.DTO.VenueDTO",
         "IsRequired": true
       }
     ],
@@ -277,7 +273,7 @@
   },
   {
     "ContainingType": "Graduation_project.Controllers.VenuesController",
-    "Method": "DeleteVenue",
+    "Method": "RemoveVenue",
     "RelativePath": "api/Venues/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -286,6 +282,54 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Graduation_project.Controllers.VenuesController",
+    "Method": "GetVenueByLocation",
+    "RelativePath": "api/Venues/{Location}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Location",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Graduation_project.Controllers.VenuesController",
+    "Method": "GetVenueByName",
+    "RelativePath": "api/Venues/Name/{Name}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Graduation_project.Controllers.VenuesController",
+    "Method": "GetVenueByPrice",
+    "RelativePath": "api/Venues/price/{price}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "price",
+        "Type": "System.Double",
         "IsRequired": true
       }
     ],

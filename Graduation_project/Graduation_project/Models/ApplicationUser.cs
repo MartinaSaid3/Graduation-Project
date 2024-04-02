@@ -6,7 +6,7 @@ namespace Graduation_project.Models
     {
         public string Role { get; set; }
         public string Gender { get; set; }
-        public string Address { get; set; }
+        public string UserLocation { get; set; }
         public string SSN { get; set; }
     }
 
