@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "D:\\Graduation_project_new\\Graduation_project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|D:\\Graduation_project_new\\Graduation_project\\graduation_project\\controllers\\venuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|d:\\graduation_project_new\\graduation_project\\graduation_project\\controllers\\venuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|solutionrelative:graduation_project\\controllers\\venuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|d:\\graduation_project_new\\graduation_project\\graduation_project\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|solutionrelative:graduation_project\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{82DABAEA-56BF-410C-AD26-E2C5E494B79B}|Graduation_project\\Graduation_project.csproj|D:\\Graduation_project_new\\Graduation_project\\graduation_project\\controllers\\reviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,7 +46,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\appsettings.json",
+              "RelativeDocumentMoniker": "Graduation_project\\appsettings.json",
+              "ToolTip": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\appsettings.json",
+              "RelativeToolTip": "Graduation_project\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-04-02T21:15:59.512Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Venue.cs",
               "DocumentMoniker": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Models\\Venue.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Models\\Venue.cs",
@@ -50,8 +67,7 @@
               "RelativeToolTip": "Graduation_project\\Models\\Venue.cs",
               "ViewState": "AQIAACsAAAAAAAAAAAAAwDcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-02T18:25:06.476Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-02T18:25:06.476Z"
             },
             {
               "$type": "Document",
@@ -61,14 +77,14 @@
               "RelativeDocumentMoniker": "Graduation_project\\Controllers\\VenuesController.cs",
               "ToolTip": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Controllers\\VenuesController.cs",
               "RelativeToolTip": "Graduation_project\\Controllers\\VenuesController.cs",
-              "ViewState": "AQIAAGoBAAAAAAAAAAAAAHgBAAAOAAAA",
+              "ViewState": "AQIAAHEAAAAAAAAAAAAAAH8AAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-02T18:03:22.994Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ApplicationEntity.cs",
               "DocumentMoniker": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Models\\ApplicationEntity.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Models\\ApplicationEntity.cs",
@@ -80,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ReviewDTO.cs",
               "DocumentMoniker": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\DTO\\ReviewDTO.cs",
               "RelativeDocumentMoniker": "Graduation_project\\DTO\\ReviewDTO.cs",
@@ -92,20 +108,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ReviewController.cs",
               "DocumentMoniker": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Controllers\\ReviewController.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Controllers\\ReviewController.cs",
               "ToolTip": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Controllers\\ReviewController.cs",
               "RelativeToolTip": "Graduation_project\\Controllers\\ReviewController.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAAAUwC8AAAA4AAAA",
+              "ViewState": "AQIAABcAAAAAAAAAAAAAAC8AAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-02T14:08:42.393Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Review.cs",
               "DocumentMoniker": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Models\\Review.cs",
               "RelativeDocumentMoniker": "Graduation_project\\Models\\Review.cs",
