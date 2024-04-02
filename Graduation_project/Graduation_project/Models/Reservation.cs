@@ -11,8 +11,8 @@ namespace Graduation_project.Models
         //forgien key venue
         public int VenueId { get; set; }
 
-        // Add other properties as needed
         public string SpecialRequests { get; set; }
+        public string Email { get; set; }
 
         //navigation property
         public Venue Venue { get; set; }
