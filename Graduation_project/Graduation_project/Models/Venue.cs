@@ -21,6 +21,7 @@ namespace Graduation_project.Models
         [Required]
         public string Description { get; set; }
 
+
         [Required]
         public string OpenBuffet { get; set; }
 
@@ -66,6 +67,7 @@ namespace Graduation_project.Models
 
         //3shan maidfsh elreservation nafsha marten,, bt5ly el obj mawgoud mara w7da fel list
         public ICollection<Reservation> Reservations { get; set; } = new HashSet<Reservation>();
+
     }
 }
 

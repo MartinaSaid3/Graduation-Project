@@ -19,6 +19,7 @@ namespace Graduation_project.DTO
         [Required]
         public string Description { get; set; }
 
+
         [Required]
         public string OpenBuffet { get; set; }
 
@@ -45,6 +46,9 @@ namespace Graduation_project.DTO
 
         [Required]
         public List<IFormFile> ImagesData { get; set; }
+
+
+        public virtual List<int> Reservations { get; set; } = new List<int>();
 
     }
 }

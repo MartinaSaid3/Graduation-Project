@@ -206,7 +206,11 @@ namespace Graduation_project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+
+                    b.Property<byte[]>("ImagesData");
+
                     b.Property<string>("HighTea")
+
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
