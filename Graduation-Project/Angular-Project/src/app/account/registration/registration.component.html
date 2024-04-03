@@ -1,0 +1,380 @@
+<section class=" d-flex flex-column w-100 align-items-center pt-2">
+  <h2 class="align-self-center dark-gray-color fs-1">Registration</h2>
+  <div class="col-11 col-md-10 col-lg-9 mx-auto">
+    <form [formGroup]="RegisterForm" (ngSubmit)="Submit()">
+      <div *ngIf="step === 0">
+        <mat-form-field>
+          <div class="d-flex flex-column w-100">
+            <label class ="label">Role</label>
+            <mat-select formControlName="Role"  class="border-0 light-lav-color" required>
+              <mat-option value = "client">Client</mat-option>
+              <mat-option value = "ServiceProvider">Service Provider</mat-option>
+            </mat-select>
+          </div>
+        </mat-form-field>
+
+        <div *ngIf="RegisterForm.get('Role')?.errors && RegisterForm.get('Role')?.touched" class="text-danger text-center">
+          <p *ngIf="RegisterForm.get('Role')?.getError('required')">Role is Required</p>
+        </div>
+
+        <mat-form-field>
+          <div class="d-flex flex-column w-100">
+            <label class ="label">Full Name</label>
+            <input type="text" formControlName="FullName" matInput placeholder=" First name , Last name" required class="border-0 light-lav-color">
+          </div>
+        </mat-form-field>
+
+        <div *ngIf="RegisterForm.get('FullName')?.errors && RegisterForm.get('FullName')?.touched" class="text-danger text-center">
+          <p *ngIf="RegisterForm.get('FullName')?.getError('required')">FullName is Required</p>
+          <p *ngIf="RegisterForm.get('FullName')?.getError('minLength')">FullName is must be more than 8 character</p>
+          <p *ngIf="RegisterForm.get('FullName')?.getError('maxLength')">FullName is must be less than 12 character</p>
+        </div>
+
+        <div class="text-start w-75 d-flex">
+          <p class="gray-color">Already have a account?</p>
+          <a [routerLink]="['/account/login']" class="text-decoration-none fw-bold light-lav-color ms-3">Log In</a>
+        </div>
+
+        <div class="d-flex justify-content-end flex-row mt-3 align-self-end">
+          <button [disabled]="RegisterForm.get('FullName')?.errors != null && RegisterForm.get('FullName')?.errors != null" class="btn button-form px-5" (click)="nextStep()">
+            Next
+          </button>
+        </div>
+
+      </div>
+
+      <div *ngIf="step === 1">
+        <mat-form-field>
+          <div class="d-flex flex-column w-100">
+            <label class ="label">SSN</label>
+            <input matInput type="text" formControlName="SSN" class="border-0 light-lav-color">
+          </div>
+        </mat-form-field>
+
+      <div *ngIf="RegisterForm.get('SSN')?.errors && RegisterForm.get('SSN')?.touched" class="text-danger text-center">
+        <p *ngIf="RegisterForm.get('SSN')?.getError('required')">SSN is Required</p>
+        <p *ngIf="RegisterForm.get('SSN')?.getError('pattern')">SSN must be 14 number</p>
+      </div>
+
+      <div class="d-flex flex-row justify-content-between">
+        <mat-form-field class="col-5">
+          <div class="d-flex flex-column w-100">
+            <label class ="label">Gender</label>
+            <mat-select formControlName="Gender" class="border-0 light-lav-color" required>
+              <mat-option value="female">Female</mat-option>
+              <mat-option value="male">Male</mat-option>
+            </mat-select>
+          </div>
+        </mat-form-field>
+
+        <div *ngIf="RegisterForm.get('Gender')?.errors && RegisterForm.get('Gender')?.touched" class="text-danger text-center">
+          <p *ngIf="RegisterForm.get('Gender')?.getError('required')">Genderis Required</p>
+        </div>
+
+        <mat-form-field class="col-6">
+          <div class="d-flex flex-column w-100">
+            <label class ="label">Phone</label>
+            <input formControlName="Phone" matInput type="text" class="border-0 light-lav-color">
+          </div>
+        </mat-form-field>
+
+        <div *ngIf="RegisterForm.get('Phone')?.errors && RegisterForm.get('Phone')?.touched" class="text-danger text-center">
+          <p *ngIf="RegisterForm.get('Phone')?.getError('required')">Phone is Required</p>
+          <p *ngIf="RegisterForm.get('Phone')?.getError('pattern')">Phone must be in format</p>
+        </div>
+      </div>
+
+      <mat-form-field>
+        <div class="d-flex flex-column w-100">
+          <label class ="label">Address</label>
+          <input formControlName="Address" matInput type="text" class="border-0 light-lav-color">
+        </div>
+      </mat-form-field>
+
+      <div *ngIf="RegisterForm.get('Address')?.errors && RegisterForm.get('Address')?.touched" class="text-danger text-center">
+        <p *ngIf="RegisterForm.get('Address')?.getError('required')">Address is Required</p>
+        <p *ngIf="RegisterForm.get('Address')?.getError('pattern')">Address must be in format</p>
+      </div>
+
+      <div class="text-start w-75 d-flex">
+        <p class="gray-color">Already have a account?</p>
+        <a [routerLink]="['/account/login']" class="text-decoration-none fw-bold light-lav-color ms-3">Log In</a>
+      </div>
+
+      <div>
+        <div class="d-flex justify-content-end flex-row align-self-end">
+          <button class="me-2 btn button-form-background-none px-5" (click)="previousStep()">
+            Back
+          </button>
+          <button (click)="nextStep()" [disabled]="RegisterForm.get('SSN')?.errors != null || RegisterForm.get('Gender')?.errors != null || RegisterForm.get('Phone')?.errors != null || RegisterForm.get('Address')?.errors != null" class="btn button-form px-5" >
+            Next
+          </button>
+        </div>
+      </div>
+      </div>
+
+      <div *ngIf="step === 2"> <mat-form-field>
+        <div class="d-flex flex-column w-100">
+          <label class ="label">E-mail</label>
+          <input matInput formControlName="Email" type="email" class="border-0 light-lav-color">
+        </div>
+      </mat-form-field>
+
+      <div *ngIf="RegisterForm.get('Email')?.errors && RegisterForm.get('Email')?.touched" class="text-danger text-center">
+        <p *ngIf="RegisterForm.get('Email')?.getError('required')">Email is Required</p>
+        <p *ngIf="RegisterForm.get('Email')?.getError('pattern')">Email is invalid format </p>
+      </div>
+
+      <mat-form-field>
+        <div class="d-flex flex-column w-100">
+          <label class ="label">UserName</label>
+          <input  matInput formControlName="UserName" type="text" class="border-0 light-lav-color">
+        </div>
+      </mat-form-field>
+
+      <div *ngIf="RegisterForm.get('UserName')?.errors && RegisterForm.get('UserName')?.touched" class="text-danger text-center">
+        <p *ngIf="RegisterForm.get('UserName')?.getError('required')">UserName is Required</p>
+        <p *ngIf="RegisterForm.get('UserName')?.getError('pattern')">UserName must be Start Capital & contain 8-12 character </p>
+      </div>
+
+      <div class="d-flex flex-row justify-content-between">
+        <mat-form-field class="col-5 col-md-4">
+          <div class="d-flex flex-column w-100">
+            <label class ="label">Password</label>
+            <input  matInput formControlName="Password" type="password" class="border-0  light-lav-color">
+          </div>
+        </mat-form-field>
+
+        <div *ngIf="RegisterForm.get('Password')?.errors && RegisterForm.get('Password')?.touched" class="text-danger text-center">
+          <p *ngIf="RegisterForm.get('Password')?.getError('required')">Password is Required</p>
+          <p *ngIf="RegisterForm.get('Password')?.getError('pattern')">Password must be in this format </p>
+        </div>
+
+        <mat-form-field class="col-5 col-md-7">
+          <div class="d-flex flex-column w-100">
+            <label class ="label">Confirm Password</label>
+            <input matInput formControlName="ConfirmPassword" type="password" class="border-0 light-lav-color">
+          </div>
+        </mat-form-field>
+      </div>
+
+      <div class="text-start w-75 d-flex">
+        <p class="gray-color">Already have a account?</p>
+        <a [routerLink]="['/account/login']" class="text-decoration-none fw-bold light-lav-color ms-3">Log In</a>
+      </div>
+
+      <div *ngIf="error" class="alert alert-danger bg-white text-danger">{{error}}</div>
+
+      <div class="d-flex justify-content-end flex-row align-self-end">
+        <button  class="me-2 btn button-form-background-none px-5" (click)="previousStep()">
+          Back
+        </button>
+        <button (click)="Submit()" [disabled]=" RegisterForm.get('Password')?.value != RegisterForm.get('ConfirmPassword')?.value || RegisterForm.errors != null" class="btn button-form px-5 d-flex align-items-center">
+          <span class="me-1">Submit</span>
+          <span *ngIf="isLoading" class="spinner-border spinner-border-sm ml-auto" role="status" aria-hidden="true"></span>
+        </button>
+      </div>
+      </div>
+    </form>
+
+
+
+
+
+    <!-- <mat-horizontal-stepper labelPosition="bottom" #stepper linear>
+      <mat-step [stepControl]="AllDataForm" editable="true">
+          <div [formGroup]="AllDataForm"  class="d-flex flex-column ">
+              <ng-template matStepLabel>
+                    Role
+              </ng-template>
+
+                <mat-form-field>
+                  <div class="d-flex flex-column w-100">
+                    <label class ="label">Role</label>
+                    <mat-select formControlName="Role"  class="border-0 light-lav-color" required>
+                      <mat-option value = "client">Client</mat-option>
+                      <mat-option value = "ServiceProvider">Service Provider</mat-option>
+                    </mat-select>
+                  </div>
+                </mat-form-field>
+
+                <div *ngIf="AllDataForm.get('Role')?.errors && AllDataForm.get('Role')?.touched" class="text-danger text-center">
+                  <p *ngIf="AllDataForm.get('Role')?.getError('required')">Role is Required</p>
+                </div>
+
+                <mat-form-field>
+                  <div class="d-flex flex-column w-100">
+                    <label class ="label">Full Name</label>
+                    <input type="text" formControlName="FullName" matInput placeholder=" First name , Last name" required class="border-0 light-lav-color">
+                  </div>
+                </mat-form-field>
+
+                <div *ngIf="AllDataForm.get('FullName')?.errors && AllDataForm.get('FullName')?.touched" class="text-danger text-center">
+                  <p *ngIf="AllDataForm.get('FullName')?.getError('required')">FullName is Required</p>
+                  <p *ngIf="AllDataForm.get('FullName')?.getError('minLength')">FullName is must be more than 8 character</p>
+                  <p *ngIf="AllDataForm.get('FullName')?.getError('maxLength')">FullName is must be less than 12 character</p>
+                </div>
+
+                <div class="text-start w-75 d-flex">
+                  <p class="gray-color">Already have a account?</p>
+                  <a [routerLink]="['/account/login']" class="text-decoration-none fw-bold light-lav-color ms-3">Log In</a>
+                </div>
+
+                <div class="d-flex justify-content-end flex-row mt-3 align-self-end">
+                  <button [disabled]="AllDataForm.errors != null" class="btn button-form px-5" matStepperNext>
+                    Next
+                  </button>
+                </div>
+
+          </div>
+      </mat-step>
+
+      <mat-step [stepControl]="AllDataForm">
+          <div [formGroup]="AllDataForm" class="d-flex flex-column">
+              <ng-template matStepLabel>
+                    Personal <br> Data
+              </ng-template>
+
+              <mat-form-field>
+                <div class="d-flex flex-column w-100">
+                  <label class ="label">SSN</label>
+                  <input matInput type="text" formControlName="SSN" class="border-0 light-lav-color">
+                </div>
+              </mat-form-field>
+
+              <div *ngIf="AllDataForm.get('SSN')?.errors && AllDataForm.get('SSN')?.touched" class="text-danger text-center">
+                <p *ngIf="PersonalDataForm.get('SSN')?.getError('required')">SSN is Required</p>
+                <p *ngIf="PersonalDataForm.get('SSN')?.getError('pattern')">SSN must be 14 number</p>
+              </div>
+
+              <div class="d-flex flex-row justify-content-between">
+                <mat-form-field class="col-5">
+                  <div class="d-flex flex-column w-100">
+                    <label class ="label">Gender</label>
+                    <mat-select formControlName="Gender" class="border-0 light-lav-color" required>
+                      <mat-option value="female">Female</mat-option>
+                      <mat-option value="male">Male</mat-option>
+                    </mat-select>
+                  </div>
+                </mat-form-field>
+
+                <div *ngIf="AllDataForm.get('Gender')?.errors && AllDataForm.get('Gender')?.touched" class="text-danger text-center">
+                  <p *ngIf="AllDataForm.get('Gender')?.getError('required')">Genderis Required</p>
+                </div>
+
+                <mat-form-field class="col-6">
+                  <div class="d-flex flex-column w-100">
+                    <label class ="label">Phone</label>
+                    <input formControlName="Phone" matInput type="text" class="border-0 light-lav-color">
+                  </div>
+                </mat-form-field>
+
+                <div *ngIf="AllDataForm.get('Phone')?.errors && AllDataForm.get('Phone')?.touched" class="text-danger text-center">
+                  <p *ngIf="PersonalDataForm.get('Phone')?.getError('required')">Phone is Required</p>
+                  <p *ngIf="PersonalDataForm.get('Phone')?.getError('pattern')">Phone must be in format</p>
+                </div>
+              </div>
+
+              <mat-form-field>
+                <div class="d-flex flex-column w-100">
+                  <label class ="label">Address</label>
+                  <input formControlName="Address" matInput type="text" class="border-0 light-lav-color">
+                </div>
+              </mat-form-field>
+
+              <div *ngIf="AllDataForm.get('Address')?.errors && AllDataForm.get('Address')?.touched" class="text-danger text-center">
+                <p *ngIf="PersonalDataForm.get('Address')?.getError('required')">Address is Required</p>
+                <p *ngIf="PersonalDataForm.get('Address')?.getError('pattern')">Address must be in format</p>
+              </div>
+
+              <div class="text-start w-75 d-flex">
+                <p class="gray-color">Already have a account?</p>
+                <a [routerLink]="['/account/login']" class="text-decoration-none fw-bold light-lav-color ms-3">Log In</a>
+              </div>
+
+              <div>
+                <div class="d-flex justify-content-end flex-row align-self-end">
+                  <button class="me-2 btn button-form-background-none px-5" matStepperPrevious>
+                    Back
+                  </button>
+                  <button [disabled]="AllDataForm.errors != null" class="btn button-form px-5" matStepperNext>
+                    Next
+                  </button>
+                </div>
+              </div>
+          </div>
+      </mat-step>
+
+      <mat-step [stepControl]="AllDataForm">
+        <form [formGroup]="AllDataForm" class="d-flex flex-column" >
+          <ng-template matStepLabel>
+            Confirm <br> Email
+          </ng-template>
+
+          <mat-form-field>
+            <div class="d-flex flex-column w-100">
+              <label class ="label">E-mail</label>
+              <input matInput formControlName="Email" type="email" class="border-0 light-lav-color">
+            </div>
+          </mat-form-field>
+
+          <div *ngIf="AllDataForm.get('Email')?.errors && AllDataForm.get('Email')?.touched" class="text-danger text-center">
+            <p *ngIf="ConfirmMailForm.get('Email')?.getError('required')">Email is Required</p>
+            <p *ngIf="ConfirmMailForm.get('Email')?.getError('pattern')">Email is invalid format </p>
+          </div>
+
+          <mat-form-field>
+            <div class="d-flex flex-column w-100">
+              <label class ="label">UserName</label>
+              <input  matInput formControlName="UserName" type="text" class="border-0 light-lav-color">
+            </div>
+          </mat-form-field>
+
+          <div *ngIf="AllDataForm.get('UserName')?.errors && AllDataForm.get('UserName')?.touched" class="text-danger text-center">
+            <p *ngIf="ConfirmMailForm.get('UserName')?.getError('required')">UserName is Required</p>
+            <p *ngIf="ConfirmMailForm.get('UserName')?.getError('pattern')">UserName must be Start Capital & contain 8-12 character </p>
+          </div>
+
+          <div class="d-flex flex-row justify-content-between">
+            <mat-form-field class="col-5 col-md-4">
+              <div class="d-flex flex-column w-100">
+                <label class ="label">Password</label>
+                <input  matInput formControlName="Password" type="password" class="border-0  light-lav-color">
+              </div>
+            </mat-form-field>
+
+            <div *ngIf="AllDataForm.get('Password')?.errors && AllDataForm.get('Password')?.touched" class="text-danger text-center">
+              <p *ngIf="ConfirmMailForm.get('Password')?.getError('required')">Password is Required</p>
+              <p *ngIf="ConfirmMailForm.get('Password')?.getError('pattern')">Password must be in this format </p>
+            </div>
+
+            <mat-form-field class="col-5 col-md-7">
+              <div class="d-flex flex-column w-100">
+                <label class ="label">Confirm Password</label>
+                <input matInput formControlName="ConfirmPassword" type="password" class="border-0 light-lav-color">
+              </div>
+            </mat-form-field>
+          </div>
+
+          <div class="text-start w-75 d-flex">
+            <p class="gray-color">Already have a account?</p>
+            <a [routerLink]="['/account/login']" class="text-decoration-none fw-bold light-lav-color ms-3">Log In</a>
+          </div>
+
+          <div *ngIf="error" class="alert alert-danger bg-white text-danger">{{error}}</div>
+
+          <div class="d-flex justify-content-end flex-row align-self-end">
+            <button  class="me-2 btn button-form-background-none px-5" matStepperPrevious>
+              Back
+            </button>
+            <button (click)="Submit()" [disabled]="AllDataForm.errors != null" class="btn button-form px-5 d-flex align-items-center">
+              <span class="me-1">Submit</span>
+              <span *ngIf="isLoading" class="spinner-border spinner-border-sm ml-auto" role="status" aria-hidden="true"></span>
+            </button>
+          </div>
+
+        </form>
+      </mat-step>
+    </mat-horizontal-stepper> -->
+  </div>
+</section>
