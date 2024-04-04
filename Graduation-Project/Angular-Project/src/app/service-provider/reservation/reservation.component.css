@@ -8,9 +8,26 @@
 }
 
 .card{
-  height: auto;
-  width: 20%;
+  width: 45%;
 }
+@media only screen and (min-width: 600px){
+  .card{
+    width: 35%;
+  }
+}
+@media only screen and (min-width: 768px){
+  .card{
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 992px){
+  .card{
+    width: 22%;
+  }
+}
+
+
 @media (width>990px){
   div{
     height: 100vh;
@@ -22,10 +39,6 @@ div{
   height: 100vh;
 }
 
-table tr th{
-  color: var(--lavandar-color)!important;
-}
-
-table tr td{
-  color: var(--gray-color)!important;
+.bage-color{
+  color: #125476;
 }

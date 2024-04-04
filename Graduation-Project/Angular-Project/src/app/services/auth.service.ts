@@ -32,10 +32,10 @@ export class AuthService {
       {
       console.error('User token not found in localStorage');
     }
-    // let encodedToken = JSON.stringify(localStorage.getItem('userToken'));
-    // this.decodedToken = jwtDecode(encodedToken);
-    // this.userData.next(this.decodedToken);
-    // console.log(this.userData);
+    let encodedToken = JSON.stringify(localStorage.getItem('userToken'));
+    this.decodedToken = jwtDecode(encodedToken);
+    this.userData.next(this.decodedToken);
+    console.log(this.userData);
 
 
     // return this.userData;

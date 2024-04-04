@@ -20,6 +20,9 @@ import { UsersDataComponent } from './admin/users-data/users-data.component';
 import { ServiceProviderDataComponent } from './admin/service-provider-data/service-provider-data.component';
 import { RequestsComponent } from './service-provider/requests/requests.component';
 import { AdminRequestsComponent } from './admin/admin-requests/admin-requests.component';
+import { ReservationComponent } from './service-provider/reservation/reservation.component';
+import { ReservationRequestsComponent } from './service-provider/reservation-requests/reservation-requests.component';
+import { UpdateComponent } from './service-provider/update/update.component';
 
 
 const routes: Routes = [
@@ -40,7 +43,9 @@ const routes: Routes = [
   {path:'service_provider',component:DashboardComponent,children:[
     {path:'',component:AddHallComponent},
     {path:'Halls',component:AddHallComponent},
-    {path:'details',component:DetailsComponent},
+    {path:'update',component:UpdateComponent},
+    {path:'requests',component:ReservationRequestsComponent},
+    {path:'reservation',component:ReservationComponent},
   ]},
 
   {path:'admin',component:AdminDashboardComponent,children:[
