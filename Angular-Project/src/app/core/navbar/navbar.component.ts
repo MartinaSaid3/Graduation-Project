@@ -9,7 +9,7 @@ import { ScrollServiceService } from '../../services/scroll-service.service';
 })
 export class NavbarComponent implements OnInit{
   // @Input()
-  isLogIn = false;
+  isLogIn:boolean = false;
 
   @Input() hidde:boolean=true;
   constructor(private _auth:AuthService,private scrollService: ScrollServiceService){}
@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit{
   ngOnInit(): void {
     this._auth.userData.subscribe({
       next:()=>{
-        if(this._auth.userData.getValue() !=null )
+        if(this._auth.userData.getValue() != null )
         {
           this.isLogIn=true;
         }

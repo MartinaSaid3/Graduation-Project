@@ -18,6 +18,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { ReservationRequestsComponent } from './reservation-requests/reservation-requests.component';
+import { ReservationComponent } from './reservation/reservation.component';
+import { UpdateComponent } from './update/update.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { MatIconModule } from '@angular/material/icon';
     DashboardComponent,
     AddHallComponent,
     HallsComponent,
+    ReservationRequestsComponent,
+    ReservationComponent,
+    UpdateComponent,
 
   ],
   imports: [

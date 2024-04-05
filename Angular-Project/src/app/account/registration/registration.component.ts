@@ -87,7 +87,7 @@ export class RegistrationComponent {
         next: (response) => {
           console.log(response)
           this.isLoading = false;
-          if (response.status ==200) {
+          if (response.message == 'success') {
             this._Router.navigate(['/account/login']);
           } else {
             this.error = 'This UserName Exist';

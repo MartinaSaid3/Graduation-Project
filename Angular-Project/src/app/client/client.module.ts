@@ -23,6 +23,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatIconModule } from '@angular/material/icon';
 
 // import { HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { httperrorInterceptor } from '../httperror.interceptor';
@@ -45,7 +46,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatFormFieldModule,
     MatButtonModule,
     MatSelectModule,
-
+    MatIconModule
   ],
   exports:[
     HomeComponent,

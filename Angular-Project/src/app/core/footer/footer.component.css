@@ -14,7 +14,8 @@ span{
 }
 
 .icon{
-  font-size: 4em;
+  font-size: 3em;
+  margin-right: 5px;
 }
 .w-30{
   width: 30%;

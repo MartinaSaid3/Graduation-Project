@@ -22,23 +22,10 @@ export class AuthService {
    userData:any =new BehaviorSubject(null) ;
    //decodedToken?:object;
    saveUserData(){
-    const token = localStorage.getItem('userToken');
-    if (token) {
-      this.decodedToken = jwtDecode(token); // use jwt_decode
-      this.userData.next(this.decodedToken);
-      console.log(this.userData);
-      }
-      else
-      {
-      console.error('User token not found in localStorage');
-    }
-    // let encodedToken = JSON.stringify(localStorage.getItem('userToken'));
-    // this.decodedToken = jwtDecode(encodedToken);
-    // this.userData.next(this.decodedToken);
-    // console.log(this.userData);
-
-
-    // return this.userData;
+    let encodedToken = JSON.stringify(localStorage.getItem('userToken'));
+    this.decodedToken = jwtDecode(encodedToken);
+    this.userData.next(this.decodedToken);
+    console.log(this.userData);
    }
 
    signup(signData:User):Observable<any> {

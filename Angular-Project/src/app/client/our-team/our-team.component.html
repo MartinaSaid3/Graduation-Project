@@ -14,8 +14,13 @@
     </section>
 
     <div class="w-100 d-flex flex-row justify-content-center align-items-center ">
-      <section class="w-75 d-flex flex-row flex-wrap justify-content-center align-items-center gap-4">
-        <div class="card d-flex flex-column align-items-center gap-3" *ngFor="let member of Members">
+      <section class="position-relative w-75 d-flex flex-row flex-wrap justify-content-center align-items-center gap-4 py-5">
+
+        <div class="position-absolute branch">
+          <img src="../../../assets/img/Vector.png">
+        </div>
+
+        <div class="card d-flex flex-column align-items-center gap-2" *ngFor="let member of Members">
           <div class="w-100 img-h">
             <img [src]="member.img_Path" class="img-fluid" alt="...">
           </div>
@@ -24,20 +29,24 @@
             <h5 class="dark-gray-color fw-bolder">{{member.job_Title}}</h5>
             <p class="gray-color px-3">{{member.intro}}</p>
           </div>
-          <div class="d-flex justify-content-evenly p-4">
-              <a [href]="member.Mail_Link">
-                <i class="bi bi-facebook"></i>
+          <div class="d-flex justify-content-center gap-2 p-2 pb-5">
+              <a [href]="member.Mail_Link" class="text-decoration-none text-dark d-flex justify-content-center align-items-center p-1 rounded-circle border border-dark">
+                <mat-icon>facebook</mat-icon>
               </a>
-              <a [href]="member.Mail_Link">
-                <i class="bi bi-linkedin"></i>
+              <a [href]="member.Mail_Link"class="text-decoration-none text-dark d-flex justify-content-center align-items-center p-1 rounded-circle border border-dark">
+                <mat-icon>linkedin</mat-icon>
               </a>
-              <a [href]="member.Mail_Link">
-                <i class="bi bi-envelope-fill"></i>
+              <a [href]="member.Mail_Link" class="text-decoration-none text-dark d-flex justify-content-center align-items-center p-1 rounded-circle border border-dark">
+                <mat-icon>mail</mat-icon>
               </a>
-              <a [href]="member.Mail_Link">
-                <i></i>
+              <a [href]="member.Mail_Link" class="text-decoration-none text-dark d-flex justify-content-center align-items-center p-1 rounded-circle border border-dark">
+                <mat-icon>account_circle</mat-icon>
               </a>
           </div>
+        </div>
+
+        <div class="position-absolute branch-reverse">
+          <img src="../../../assets/img/Vector.png">
         </div>
       </section>
     </div>

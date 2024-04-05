@@ -1,21 +1,61 @@
 .card{
   width: 90%;
   border-radius: 0;
-  }
+}
+
+.branch{
+  top:-20px;
+  right: -67px;
+  z-index: 5;
+}
+
+.branch-reverse{
+  bottom:-20px;
+  left: -67px;
+  z-index: 5;
+  transform: rotate(180deg);
+}
 @media only screen and (min-width: 600px){
   .card{
   width: 80%;
+  }
+  .branch{
+    top:-20px;
+    right: -44px;
+  }
+
+  .branch-reverse{
+    bottom:-20px;
+    left: -44px;
   }
 }
 @media only screen and (min-width: 768px){
     .card{
     width: 45%;
   }
+  .branch{
+    top:-20px;
+    right: -67px;
+  }
+
+  .branch-reverse{
+    bottom:-20px;
+    left: -67px;
+  }
 }
 
 @media only screen and (min-width: 992px){
     .card{
     width: 30%;
+  }
+  .branch{
+    top:-20px;
+    right: -58px;
+  }
+
+  .branch-reverse{
+    bottom:-20px;
+    left: -58px;
   }
 }
 
@@ -79,6 +119,7 @@
     border: 2px solid var(--dark-gray-color);
     margin-bottom: 10px;
   }
+
 
   /* h2 {
     text-align: center;

@@ -4,9 +4,8 @@ import {  FormBuilder,FormGroup, Validators} from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { Account } from '../../_modules/account';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
+import { jwtDecode, JwtPayload } from "jwt-decode";
+
 
 @Component({
   selector: 'app-login',
@@ -20,7 +19,7 @@ export class LoginComponent {
   //forms
   LogInForm!: FormGroup;
 
-  constructor(private _auth:AuthService,private _Router:Router, private _formBuilder: FormBuilder,private _authService:AuthService) { }
+  constructor(private _Router:Router, private _formBuilder: FormBuilder,private _authService:AuthService) { }
 
     ngOnInit() {
 
@@ -48,16 +47,12 @@ error:string ='';
       next:(response)=>{
         this.isLoading=false;
         console.log(response);
-        if(response.token != null){
-          if(response.token.Role == 'Client'){
-            console.log("client");
-          }
-          console.log(response.token.Role);
+        if(response.message === 'success'){
+
           localStorage.setItem('userToken',response.token);
           this._authService.saveUserData();
           this._Router.navigate(['/home']);
 
-          //this._Router.navigate(['/https://mail.google.com/mail/u/0/']);
         }else{
           this.error = 'This UserName Exist';
         }

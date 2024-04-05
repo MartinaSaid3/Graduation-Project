@@ -9,7 +9,13 @@ export class HallsService {
 
   constructor(private _http:HttpClient) { }
 
-  getHalls(city:string):Observable<any>{
-    return this._http.get(``);
+  getAllHalls():Observable<any>{
+    return this._http.get(`https://localhost:44339/api/Venues`);
+  }
+  getSpecialHalls(city:string):Observable<any>{
+    return this._http.get(`https://localhost:44339/api/Venues/${city}`);
+  }
+  getHallsPrice(price:number):Observable<any>{
+    return this._http.get(`https://localhost:44339/api/Venues/price/${price}`);
   }
 }

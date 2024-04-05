@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import {RouterModule} from '@angular/router';
 import { LogoComponent } from './logo/logo.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -13,7 +14,7 @@ import { LogoComponent } from './logo/logo.component';
     LogoComponent,
   ],
   imports: [
-    CommonModule,RouterModule
+    CommonModule,RouterModule,MatIconModule
   ],
   exports: [
     FooterComponent,
