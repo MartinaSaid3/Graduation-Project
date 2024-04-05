@@ -162,5 +162,39 @@ namespace Graduation_project.Controllers
         {
             return context.Reservations.Any(e => e.Id == id);
         }
+
+        [HttpPut("Accept/{id}")]
+        public async Task<IActionResult> AcceptReservation(int id)
+        {
+            var reservation = await context.Reservations.FindAsync(id);
+
+            if (reservation == null)
+            {
+                return NotFound();
+            }
+
+            reservation.Status = Reservation.ApprovalStatusReservation.Accepted;
+            await context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        [HttpPut("Reject/{id}")]
+        public async Task<IActionResult> RejectReservation(int id)
+        {
+            var reservation = await context.Reservations.FindAsync(id);
+
+            if (reservation == null)
+            {
+                return NotFound();
+            }
+
+            reservation.Status = Reservation.ApprovalStatusReservation.Rejected;
+            await context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
     }
 }
+

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Graduation_project.csproj": {}
+    "E:\\nourhancopy\\Graduation_project\\Graduation_project\\Graduation_project.csproj": {}
   },
   "projects": {
-    "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Graduation_project.csproj": {
+    "E:\\nourhancopy\\Graduation_project\\Graduation_project\\Graduation_project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Graduation_project.csproj",
+        "projectUniqueName": "E:\\nourhancopy\\Graduation_project\\Graduation_project\\Graduation_project.csproj",
         "projectName": "Graduation_project",
-        "projectPath": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\Graduation_project.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "D:\\Graduation_project_new\\Graduation_project\\Graduation_project\\obj\\",
+        "projectPath": "E:\\nourhancopy\\Graduation_project\\Graduation_project\\Graduation_project.csproj",
+        "packagesPath": "C:\\Users\\Mega Store\\.nuget\\packages\\",
+        "outputPath": "E:\\nourhancopy\\Graduation_project\\Graduation_project\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Mega Store\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,17 +34,16 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "CloudinaryDotNet": {
+              "target": "Package",
+              "version": "[1.26.2, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[8.0.3, )"
@@ -91,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

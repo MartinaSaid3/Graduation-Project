@@ -62,11 +62,26 @@ namespace Graduation_project.Models
 
 
         [Required]
-        public List<byte[]> ImagesData { get; set; }
+        public List<string> ImagesData { get; set; }
+        public ApprovalStatus Status { get; set; }
+
+        // Constructor
+        public Venue()
+        {
+            // Initialize status to Pending by default
+            Status = ApprovalStatus.Pending;
+        }
 
 
         //3shan maidfsh elreservation nafsha marten,, bt5ly el obj mawgoud mara w7da fel list
         public ICollection<Reservation> Reservations { get; set; } = new HashSet<Reservation>();
+
+        public enum ApprovalStatus
+        {
+            Pending,
+            Accepted,
+            Rejected
+        }
 
     }
 }

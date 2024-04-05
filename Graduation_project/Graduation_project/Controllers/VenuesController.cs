@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Graduation_project.Controllers
 {
@@ -12,10 +13,12 @@ namespace Graduation_project.Controllers
     public class VenuesController : ControllerBase
     {
         private readonly ApplicationEntity Context;
+        private readonly IphotoServices photoservices;
 
-        public VenuesController(ApplicationEntity _context)
+        public VenuesController(ApplicationEntity _context , IphotoServices _photoservices)
         {
             Context = _context;
+            photoservices = _photoservices;
         }
 
 
@@ -341,65 +344,103 @@ namespace Graduation_project.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> SaveVenue(VenueDTO VenueDto)
+
+        public async Task<ActionResult<Venue>> PostVenue(VenueDTO VenueDto)
         {
-            if (ModelState.IsValid)
+
+            List<string> imagesUrl = new List<string>();
+
+            foreach (var x in VenueDto.ImagesData)
             {
-                if (VenueDto.ImagesData == null || VenueDto.ImagesData.Count == 0)
-                {
-                    return BadRequest("No images provided.");
-                }
-                Venue venue = new Venue();
-                venue.Name = VenueDto.Name;
-                venue.Description = VenueDto.Description;
-                venue.Location = VenueDto.Location;
-                venue.OpenBuffet = VenueDto.OpenBuffet;
-                venue.SetMenue = VenueDto.SetMenue;
-                venue.HighTea = VenueDto.HighTea;
-                venue.PriceOpenBuffetPerPerson = VenueDto.PriceOpenBuffetPerPerson;
-                venue.PriceSetMenuePerPerson = VenueDto.PriceSetMenuePerPerson;
-                venue.PriceHighTeaPerPerson = VenueDto.PriceHighTeaPerPerson;
-                venue.MinCapacity = VenueDto.MinCapacity;
-                venue.MaxCapacity = VenueDto.MaxCapacity;
-                venue.ImagesData = await ConvertImagesToByteArray(VenueDto.ImagesData); // Convert images to byte array
 
-
-         
-
-                // Save the venue to the database
-                Context.Venues.Add(venue);
-                await Context.SaveChangesAsync();
-
-
-                // Get the URL for the newly created venue
-                string url = Url.Link("GetOneVenueRoute", new { id = venue.Id });
-                return Created(url, venue);
-              
+                var photo = await photoservices.AddPlaceAsync(x);
+                imagesUrl.Add(photo.SecureUrl.AbsoluteUri);
             }
 
-            return BadRequest(ModelState);
 
+            var venue = new Venue
+            {
+                Name = VenueDto.Name,
+                Description = VenueDto.Description,
+                Location = VenueDto.Location,
+                OpenBuffet = VenueDto.OpenBuffet,
+                SetMenue = VenueDto.SetMenue,
+                HighTea = VenueDto.HighTea,
+                PriceOpenBuffetPerPerson = VenueDto.PriceOpenBuffetPerPerson,
+                PriceSetMenuePerPerson = VenueDto.PriceSetMenuePerPerson,
+                PriceHighTeaPerPerson = VenueDto.PriceHighTeaPerPerson,
+                MinCapacity = VenueDto.MinCapacity,
+                MaxCapacity = VenueDto.MaxCapacity,
+                //conert image to url
+                ImagesData = imagesUrl,
+            };
+
+            // save the venue to the database
+            Context.Venues.Add(venue);
+            await Context.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetAllVenue), new { id = venue.Id }, venue);
 
         }
 
-        private async Task<List<byte[]>> ConvertImagesToByteArray(List<IFormFile> imageFiles)
-        {
-            var imageDataList = new List<byte[]>();
+        //public async Task<IActionResult> SaveVenue(VenueDTO VenueDto)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        if (VenueDto.ImagesData == null || VenueDto.ImagesData.Count == 0)
+        //        {
+        //            return BadRequest("No images provided.");
+        //        }
+        //        Venue venue = new Venue();
+        //        venue.Name = VenueDto.Name;
+        //        venue.Description = VenueDto.Description;
+        //        venue.Location = VenueDto.Location;
+        //        venue.OpenBuffet = VenueDto.OpenBuffet;
+        //        venue.SetMenue = VenueDto.SetMenue;
+        //        venue.HighTea = VenueDto.HighTea;
+        //        venue.PriceOpenBuffetPerPerson = VenueDto.PriceOpenBuffetPerPerson;
+        //        venue.PriceSetMenuePerPerson = VenueDto.PriceSetMenuePerPerson;
+        //        venue.PriceHighTeaPerPerson = VenueDto.PriceHighTeaPerPerson;
+        //        venue.MinCapacity = VenueDto.MinCapacity;
+        //        venue.MaxCapacity = VenueDto.MaxCapacity;
+        //        venue.ImagesData = await ConvertImagesToByteArray(VenueDto.ImagesData); // Convert images to byte array
 
-            foreach (var imageFile in imageFiles)
-            {
-                if (imageFile != null && imageFile.Length > 0)
-                {
-                    using (var memoryStream = new MemoryStream())
-                    {
-                        await imageFile.CopyToAsync(memoryStream);
-                        imageDataList.Add(memoryStream.ToArray());
-                    }
-                }
-            }
 
-            return imageDataList;
-        }
+
+
+        //        // Save the venue to the database
+        //        Context.Venues.Add(venue);
+        //        await Context.SaveChangesAsync();
+
+
+        //        // Get the URL for the newly created venue
+        //        string url = Url.Link("GetOneVenueRoute", new { id = venue.Id });
+        //        return Created(url, venue);
+
+        //    }
+
+        //    return BadRequest(ModelState);
+
+
+        //}
+
+        //private async Task<List<byte[]>> ConvertImagesToByteArray(List<IFormFile> imageFiles)
+        //{
+        //    var imageDataList = new List<byte[]>();
+
+        //    foreach (var imageFile in imageFiles)
+        //    {
+        //        if (imageFile != null && imageFile.Length > 0)
+        //        {
+        //            using (var memoryStream = new MemoryStream())
+        //            {
+        //                await imageFile.CopyToAsync(memoryStream);
+        //                imageDataList.Add(memoryStream.ToArray());
+        //            }
+        //        }
+        //    }
+
+        //    return imageDataList;
+        //}
 
 
 
@@ -465,6 +506,39 @@ namespace Graduation_project.Controllers
             }
             return BadRequest("there is no venue with same id");
 
+        }
+
+        // admin accept request
+        [HttpPut("accept/{id}")]
+        public async Task<IActionResult> AcceptVenueSubmission(int id)
+        {
+            var venue = await Context.Venues.FindAsync(id);
+            if (venue == null)
+            {
+                return NotFound();
+            }
+
+            // Update the status of the venue submission to Accepted
+            venue.Status = Venue.ApprovalStatus.Accepted;
+            await Context.SaveChangesAsync();
+
+            return Ok("Venue submission accepted successfully.");
+        }
+        //amin reject l request
+        [HttpPut("reject/{id}")]
+        public async Task<IActionResult> RejectVenueSubmission(int id)
+        {
+            var venue = await Context.Venues.FindAsync(id);
+            if (venue == null)
+            {
+                return NotFound();
+            }
+
+            // Update the status of the venue submission to Rejected
+            venue.Status = Venue.ApprovalStatus.Rejected;
+            await Context.SaveChangesAsync();
+
+            return Ok("Venue submission rejected successfully.");
         }
 
     }

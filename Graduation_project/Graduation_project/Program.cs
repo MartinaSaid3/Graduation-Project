@@ -86,6 +86,11 @@ namespace Graduation_project
                 });
             });
 
+            //cloudinary
+            builder.Services.Configure<CloudinarySetting>(builder.Configuration.GetSection("CloudinarySetting"));
+
+            builder.Services.AddScoped<IphotoServices, PhotoServices>();
+
             var app = builder.Build();
 
             if (app.Environment.IsDevelopment())

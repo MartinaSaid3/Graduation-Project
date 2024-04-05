@@ -7,12 +7,12 @@ namespace Graduation_project.DTO
     {
 
         [Required]
-        [StringLength(15, MinimumLength = 3)]
+       // [StringLength(15, MinimumLength = 3)]
         public string Name { get; set; }
 
 
         [Required]
-        [RegularExpression(@"^[\w\s]+,[\w\s]+,[\w\s]+$", ErrorMessage = "Location format should be 'city, area, street'.")]
+      //  [RegularExpression(@"^[\w\s]+,[\w\s]+,[\w\s]+$", ErrorMessage = "Location format should be 'city, area, street'.")]
         public string Location { get; set; }
 
 
